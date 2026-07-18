@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="بوابة خدمات الطلاب الذكية في المعهد العالي لعلوم الحاسب CIS – نتائج، تسجيل، تقويم أكاديمي، مكتبة رقمية، LMS، شكاوى، شهادات، وتدريب.">
+  <title data-i18n="services_title_1">خدمات الطلاب | المعهد العالي لعلوم الحاسب ونظم المعلومات الإدارية</title>
+  <link rel="icon" type="image/png" href="assets/logo-white.png">
+  <link rel="apple-touch-icon" href="assets/logo-white.png">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* ====== SERVICES PAGE SPECIFIC ====== */
+    .services-hero {
+      min-height: 36vh;
+      margin-top: var(--header-height);
+      background: linear-gradient(160deg, rgba(15, 15, 16, 0.92) 0%, rgba(230, 95, 43, 0.35) 100%),
+        url('assets/campus_life.png') center / cover no-repeat;
+      display: flex;
+      align-items: center;
+    }
+
+    /* ---- Portal Sidebar ---- */
+    .portal-container {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .portal-container {
+        grid-template-columns: 1fr;
+      }
+
+      .portal-sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .portal-tab-btn {
+        flex: 1;
+        min-width: 140px;
+        font-size: var(--font-size-xs);
+      }
+    }
+
+    .portal-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: sticky;
+      top: calc(var(--header-height) + var(--space-md));
+    }
+
+    .portal-tab-btn {
+      width: 100%;
+      text-align: right;
+      padding: 12px var(--space-md);
+      font-family: var(--font-headings);
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      border-radius: var(--radius-md);
+      background: white;
+      cursor: pointer;
+      border: 1px solid rgba(15, 15, 16, 0.05);
+      box-shadow: var(--shadow-sm);
+      color: var(--text-muted);
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .portal-tab-btn:hover,
+    .portal-tab-btn.active {
+      background: var(--gradient-primary);
+      color: white;
+      box-shadow: var(--shadow-orange);
+      border-color: transparent;
+    }
+
+    .portal-tab-btn svg {
+      transition: color var(--transition-fast);
+      min-width: 20px;
+    }
+
+    .portal-tab-btn.active svg,
+    .portal-tab-btn:hover svg {
+      color: white;
+    }
+
+    /* ---- Portal Main Panel ---- */
+    .portal-body-panel {
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: var(--space-lg);
+      border: 1px solid rgba(15, 15, 16, 0.04);
+      min-height: 540px;
+    }
+
+    .portal-panel-section {
+      display: none;
+      animation: panel-fade 0.4s ease forwards;
+    }
+
+    .portal-panel-section.active {
+      display: block;
+    }
+
+    @keyframes panel-fade {
+      from {
+        opacity: 0;
+        transform: translateX(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .panel-title {
+      font-family: var(--font-headings);
+      font-size: var(--font-size-xl);
+      font-weight: 800;
+      margin-bottom: var(--space-xs);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .panel-title svg {
+      color: var(--color-primary);
+    }
+
+    .panel-subtitle {
+      font-size: var(--font-size-sm);
+      color: var(--text-muted);
+      margin-bottom: var(--space-lg);
+      border-bottom: 1px solid rgba(15, 15, 16, 0.05);
+      padding-bottom: var(--space-sm);
+    }
+
+    /* ---- Forms ---- */
+    .portal-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+    }
+
+    @media (max-width: 640px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-field label {
+      font-family: var(--font-headings);
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      padding: 10px 14px;
+      border: 1px solid rgba(15, 15, 16, 0.1);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: var(--font-size-sm);
+      background: var(--color-bg-neutral);
+      transition: border-color var(--transition-fast);
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      background: white;
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* ---- Calendar ---- */
+    .cal-event {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(15, 15, 16, 0.05);
+      background: white;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-fast);
+    }
+
+    .cal-event:hover {
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .cal-badge {
+      min-width: 56px;
+      height: 56px;
+      background: var(--gradient-primary);
+      color: white;
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: var(--font-headings);
+    }
+
+    .cal-badge .day {
+      font-size: 1.4rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .cal-badge .mon {
+      font-size: 10px;
+    }
+
+    .cal-info {
+      flex: 1;
+    }
+
+    .cal-info h4 {
+      font-size: var(--font-size-base);
+      margin-bottom: 2px;
+      font-weight: 700;
+    }
+
+    .cal-info p {
+      font-size: var(--font-size-xs);
+      color: var(--text-muted);
+    }
+
+    /* ---- Library ---- */
+    .lib-search-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: var(--space-md);
+    }
+
+    .lib-search-bar input {
+      flex: 1;
+      padding: 10px 16px;
+      border: 1px solid rgba(15, 15, 16, 0.1);
+      border-radius: var(--radius-full);
+      font-family: var(--font-body);
+      font-size: var(--font-size-sm);
+      background: var(--color-bg-neutral);
+    }
+
+    .lib-search-bar button {
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      background: var(--gradient-primary);
+      color: white;
+      font-family: var(--font-headings);
+      font-weight: 700;
+      font-size: var(--font-size-sm);
+      cursor: pointer;
+      transition: opacity var(--transition-fast);
+    }
+
+    .lib-search-bar button:hover {
+      opacity: 0.9;
+    }
+
+    .book-card {
+      display: flex;
+      gap: var(--space-sm);
+      padding: var(--space-sm);
+      border: 1px solid rgba(15, 15, 16, 0.05);
+      border-radius: var(--radius-md);
+      margin-bottom: 10px;
+      background: white;
+      align-items: center;
+      transition: var(--transition-fast);
+    }
+
+    .book-card:hover {
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .book-cover {
+      width: 56px;
+      height: 70px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: white;
+      min-width: 56px;
+    }
+
+    /* ---- Alert boxes ---- */
+    .portal-alert {
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
+      font-size: var(--font-size-sm);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .portal-alert.info {
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      color: #1e40af;
+    }
+
+    .portal-alert.success {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: #065f46;
+    }
+
+    /* ---- Complaint log ---- */
+    #portal-complaints-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .complaint-log-card {
+      padding: var(--space-sm) var(--space-md);
+      background: var(--color-bg-neutral);
+      border-radius: var(--radius-md);
+      border-right: 4px solid var(--color-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    /* ---- LMS grid ---- */
+    #portal-lms-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .lms-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid rgba(15, 15, 16, 0.05);
+      border-radius: var(--radius-md);
+      background: white;
+      box-shadow: var(--shadow-sm);
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    /* ---- Internship grid ---- */
+    #portal-internships-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+
+    @media (max-width: 640px) {
+      #portal-internships-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .intern-card {
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(15, 15, 16, 0.05);
+      background: white;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-top: 4px solid var(--color-primary);
+      transition: var(--transition-fast);
+    }
+
+    .intern-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+
+    .intern-card.closed {
+      border-top-color: var(--text-muted);
+      opacity: 0.7;
+    }
+
+    /* ---- Results lookup ---- */
+    .results-search-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: var(--space-md);
+    }
+
+    .results-search-row input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 2px solid rgba(15, 15, 16, 0.1);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: var(--font-size-md);
+      background: var(--color-bg-neutral);
+      transition: border-color var(--transition-fast);
+    }
+
+    .results-search-row input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      background: white;
+    }
+
+    .results-search-row button {
+      padding: 12px 24px;
+      background: var(--gradient-primary);
+      color: white;
+      border-radius: var(--radius-md);
+      font-family: var(--font-headings);
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .results-search-row button:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+
+    /* Registration status tracker */
+    .reg-status-step {
+      display: flex;
+      gap: var(--space-sm);
+      align-items: flex-start;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid rgba(15, 15, 16, 0.05);
+    }
+
+    .reg-step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-headings);
+      font-weight: 800;
+      font-size: var(--font-size-sm);
+      min-width: 36px;
+    }
+
+    .reg-step-num.done {
+      background: #10b981;
+      color: white;
+    }
+
+    .reg-step-num.active {
+      background: var(--color-primary);
+      color: white;
+      box-shadow: 0 0 0 4px var(--color-primary-light);
+    }
+
+    .reg-step-num.pending {
+      background: rgba(15, 15, 16, 0.06);
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body data-portal-hub="true">
+
+  <!-- ===================== STICKY HEADER ===================== -->
+  <header class="main-header">
+    <div class="container header-container">
+      <!-- Logo -->
+      <a href="index.html" class="logo-link" id="logo">
+        <img src="assets/CIS-logo.png" alt="CIS Logo" class="navbar-logo">
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item active"><a href="index.html" class="nav-link" id="nav-home"
+              data-i18n="nav_home">الرئيسية</a></li>
+
+          <li class="nav-item has-dropdown">
+            <a href="about.html" class="nav-link" id="nav-about" data-i18n="nav_about">عن المعهد</a>
+            <ul class="dropdown-menu">
+              <li><a href="about.html" class="dropdown-item" data-i18n="nav_about_vision">رؤية ورسالة المعهد</a></li>
+              <li><a href="about.html#dean" class="dropdown-item" data-i18n="nav_about_dean">كلمة عميد المعهد</a></li>
+              <li><a href="about.html#achievements" class="dropdown-item" data-i18n="nav_about_achievements">الاعتمادات
+                  والإنجازات</a></li>
+              <li><a href="about.html#timeline" class="dropdown-item" data-i18n="nav_about_timeline">تاريخ المعهد</a>
+              </li>
+              <li><a href="quality.html" class="dropdown-item" style="border-top:1px solid rgba(15,15,16,0.06);"
+                  data-i18n="nav_about_qa">وحدة ضمان الجودة (QA)</a></li>
+              <li><a href="research.html" class="dropdown-item" data-i18n="nav_about_research">البحث العلمي
+                  والابتكار</a></li>
+              <li><a href="faq.html" class="dropdown-item" data-i18n="nav_about_faq">الأسئلة الشائعة (FAQ)</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-dropdown">
+            <a href="admissions.html" class="nav-link" id="nav-admissions" data-i18n="nav_admissions">القبول
+              والتسجيل</a>
+            <ul class="dropdown-menu">
+              <li><a href="admissions.html" class="dropdown-item" data-i18n="nav_admissions_requirements">شروط الالتحاق
+                  والقبول</a></li>
+              <li><a href="admissions.html#fees-section" class="dropdown-item" data-i18n="nav_admissions_fees">الرسوم
+                  والمصروفات الدراسية</a></li>
+              <li><a href="admissions.html#docs-section" class="dropdown-item" data-i18n="nav_admissions_docs">المستندات
+                  المطلوبة</a></li>
+              <li><a href="admissions.html#apply-section" class="dropdown-item" data-i18n="nav_admissions_apply">التقديم
+                  الإلكتروني المباشر</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" id="nav-depts" data-i18n="nav_depts">الأقسام الأكاديمية</a>
+            <ul class="dropdown-menu">
+              <li><a href="dept-cs.html" class="dropdown-item" data-i18n="nav_dept_cs">علوم الحاسب (CS)</a></li>
+              <li><a href="dept-bis.html" class="dropdown-item" data-i18n="nav_dept_bis">نظم المعلومات الإدارية
+                  (BIS)</a></li>
+              <li><a href="dept-admin.html" class="dropdown-item" data-i18n="nav_dept_admin">إدارة الأعمال والمحاسبة</a>
+              </li>
+              <li><a href="dept-basic.html" class="dropdown-item" data-i18n="nav_dept_basic">العلوم الأساسية</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-dropdown">
+            <a href="services.html" class="nav-link" id="nav-services" data-i18n="nav_services">خدمات الطلاب</a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html#results" class="dropdown-item" data-i18n="nav_services_results">نتائج الطلاب
+                  والدرجات</a></li>
+              <li><a href="services.html#registration" class="dropdown-item" data-i18n="nav_services_registration">حالة
+                  التسجيل الأكاديمي</a></li>
+              <li><a href="services.html#calendar" class="dropdown-item" data-i18n="nav_services_calendar">التقويم
+                  الأكاديمي</a></li>
+              <li><a href="services.html#library" class="dropdown-item" data-i18n="nav_services_library">المكتبة
+                  الرقمية</a></li>
+              <li><a href="services.html#lms" class="dropdown-item" data-i18n="nav_services_lms">منصة التعلم (LMS)</a>
+              </li>
+              <li><a href="services.html#complaints" class="dropdown-item" data-i18n="nav_services_complaints">الشكاوى
+                  والاستفسارات</a></li>
+              <li><a href="services.html#certificates" class="dropdown-item" data-i18n="nav_services_certificates">طلب
+                  شهادات رسمية</a></li>
+              <li><a href="services.html#internships" class="dropdown-item" data-i18n="nav_services_internships">التدريب
+                  والتوظيف</a></li>
+              <li><a href="it-unit.html" class="dropdown-item" style="border-top:1px solid rgba(15,15,16,0.06);"
+                  data-i18n="nav_services_it">وحدة تكنولوجيا المعلومات (IT)</a></li>
+              <li><a href="alumni.html" class="dropdown-item" style="border-top:1px solid rgba(15,15,16,0.06);"
+                  data-i18n="nav_services_alumni">بوابة الخريجين</a></li>
+              <li><a href="career.html" class="dropdown-item" data-i18n="nav_services_career">مركز التطوير المهني</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a href="faculty.html" class="nav-link" id="nav-faculty" data-i18n="nav_faculty">أعضاء
+              التدريس</a></li>
+
+          <li class="nav-item has-dropdown">
+            <a href="media.html" class="nav-link" id="nav-media" data-i18n="nav_media">الوسائط المتعددة</a>
+            <ul class="dropdown-menu">
+              <li><a href="media.html#photos" class="dropdown-item" data-i18n="nav_media_photos">معرض الصور</a></li>
+              <li><a href="media.html#videos" class="dropdown-item" data-i18n="nav_media_videos">الفيديوهات المثبتة</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a href="contact.html" class="nav-link" id="nav-contact" data-i18n="nav_contact">اتصل
+              بنا</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <button id="lang-btn" class="btn" aria-label="Toggle Language">
+          <span>English</span>
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.345 2.513-1.638 5.178-3.41 7.5" />
+          </svg>
+        </button>
+        <a href="admissions.html#apply-section" class="btn btn-primary" style="padding: 10px 12px;" id="btn-apply"
+          data-i18n="btn_apply">قدم
+          الآن</a>
+        <button class="mobile-menu-toggle btn" id="mobile-menu-toggle" aria-label="Open Mobile Menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="nav-drawer" id="nav-drawer">
+    <div class="drawer-header">
+      <div class="logo-text">المعهد العالي <span>CIS</span></div>
+      <button class="drawer-close" id="drawer-close" aria-label="Close Menu">&times;</button>
+    </div>
+    <ul class="drawer-menu">
+      <li><a href="index.html" id="mob-home">Home</a></li>
+      <li><a href="about.html" id="mob-about">About</a></li>
+      <li><a href="admissions.html" id="mob-admissions">Admissions</a></li>
+      <li><a href="faculty.html" id="mob-faculty">Faculty</a></li>
+      <li><a href="services.html" id="mob-services">خدمات الطلاب</a></li>
+      <li><a href="media.html" id="mob-media">Media</a></li>
+      <li><a href="contact.html" id="mob-contact">Contact</a></li>
+      <li><a href="quality.html" id="mob-quality">Quality</a></li>
+      <li><a href="it-unit.html" id="mob-it">IT Unit</a></li>
+      <li><a href="research.html" id="mob-res">البحث العلمي</a></li>
+      <li><a href="alumni.html" id="mob-alumni">الخريجين</a></li>
+      <li><a href="career.html" id="mob-career">التطوير المهني</a></li>
+      <li><a href="faq.html" id="mob-faq">FAQ</a></li>
+    </ul>
+  </div>
+
+
+  <!-- ===================== HERO BANNER ===================== -->
+  <section class="services-hero" id="services-hero">
+    <div class="container">
+      <span class="hero-subtitle" data-i18n="services_span_15">المعهد العالي لعلوم الحاسب ونظم المعلومات الإدارية</span>
+      <h1 class="hero-title" style="font-size: var(--font-size-xxl); color:white;">
+        <span data-i18n="services_portal_title_prefix">بوابة</span> <span
+          style="background:var(--gradient-primary); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"
+          data-i18n="services_a_6">خدمات الطلاب</span>
+      </h1>
+      <p style="color: rgba(255,255,255,0.75); font-size: var(--font-size-md); max-width:600px; margin-top: var(--space-xs);"
+        data-i18n="services_p_16">وجهتك الواحدة للنتائج والتسجيل والتقويم والمكتبة والمنصة الإلكترونية والشكاوى
+        والشهادات والتدريب.</p>
+      <div
+        style="display:flex; gap:8px; align-items:center; margin-top:var(--space-md); font-size:var(--font-size-xs); color:rgba(255,255,255,0.6);">
+        <a href="index.html" style="color:rgba(255,255,255,0.6);" data-i18n="services_a_2">الرئيسية</a>
+        <span>/</span>
+        <span style="color:var(--color-primary); font-weight:700;" data-i18n="services_a_6">خدمات الطلاب</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== PORTAL HUB ===================== -->
+  <section class="section-padding" style="background: var(--color-bg-neutral);">
+    <div class="container">
+      <div class="portal-container">
+
+        <!-- ---- SIDEBAR NAVIGATION ---- -->
+        <aside class="portal-sidebar" id="portal-sidebar">
+          <button class="portal-tab-btn active" data-panel="results" id="tab-results">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span data-i18n="services_tab_results">النتائج والدرجات</span>
+          </button>
+          <button class="portal-tab-btn" data-panel="registration" id="tab-registration">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+            </svg>
+            <span data-i18n="services_tab_registration">حالة التسجيل</span>
+          </button>
+          <button class="portal-tab-btn" data-panel="calendar" id="tab-calendar">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span data-i18n="services_tab_calendar">التقويم الأكاديمي</span>
+          </button>
+          <button class="portal-tab-btn" data-panel="library" id="tab-library">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            <span data-i18n="services_tab_library">المكتبة الرقمية</span>
+          </button>
+          <button class="portal-tab-btn" data-panel="lms" id="tab-lms">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span data-i18n="services_tab_lms">منصة التعلم (LMS)</span>
+          </button>
+          <button class="portal-tab-btn" data-panel="complaints" id="tab-complaints">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            </svg>
+            <span data-i18n="services_tab_complaints">الشكاوى والاستفسارات</span>
+          </button>
+          <button class="portal-tab-btn" data-panel="certificates" id="tab-certificates">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            </svg>
+            <span data-i18n="services_tab_certificates">طلب شهادات رسمية</span>
+          </button>
+          <button class="portal-tab-btn" data-panel="internships" id="tab-internships">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span data-i18n="services_tab_internships">التدريب والتوظيف</span>
+          </button>
+        </aside>
+
+
+        <!-- ---- MAIN PANEL ---- -->
+        <div class="portal-body-panel" id="portal-body">
+
+          <!-- 1. RESULTS CHECKER -->
+          <div class="portal-panel-section active" id="panel-results">
+            <h2 class="panel-title">
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span data-i18n="services_panel_results_title">نتائج الفصل الدراسي</span>
+            </h2>
+            <p class="panel-subtitle" data-i18n="services_p_17">أدخل رقمك الأكاديمي المكوّن من ٦ أرقام لعرض درجاتك
+              ومعدلاتك الفصلية التراكمية.</p>
+
+            <div class="portal-alert info" style="margin-bottom: var(--space-md);">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="min-width:20px;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span data-i18n="services_alert_demo_text">للتجربة التوضيحية أدخل أحد الأرقام: <strong>202601</strong> أو
+                <strong>202602</strong></span>
+            </div>
+
+            <div class="results-search-row">
+              <input type="text" id="student-id-input" placeholder="أدخل رقمك الأكاديمي..."
+                data-i18n-placeholder="services_input_placeholder" maxlength="8" aria-label="الرقم الأكاديمي للطالب">
+              <button id="portal-results-btn">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  style="display:inline; margin-left:6px;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <span data-i18n="services_btn_show_result">عرض النتيجة</span>
+              </button>
+            </div>
+
+            <div id="student-results-output"></div>
+          </div>
+
+
+          <!-- 2. REGISTRATION STATUS -->
+          <div class="portal-panel-section" id="panel-registration">
+            <h2 class="panel-title">
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
+              <span data-i18n="services_panel_registration_title">حالة التسجيل الأكاديمي</span>
+            </h2>
+            <p class="panel-subtitle" data-i18n="services_p_18">متابعة مراحل التسجيل في المقررات الدراسية للفصل
+              الأكاديمي الحالي.</p>
+
+            <div class="portal-alert success">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="min-width:20px;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span data-i18n="services_alert_registration_banner">مرحبًا! باب التسجيل للفصل الأول ٢٠٢٦/٢٠٢٧ مفتوح
+                حالياً حتى <strong>١٥ أغسطس ٢٠٢٦</strong>.</span>
+            </div>
+
+            <div style="margin-top: var(--space-md);">
+              <h3
+                style="font-family:var(--font-headings); font-size:var(--font-size-md); margin-bottom:var(--space-sm);"
+                data-i18n="services_h3_20">مراحل إتمام التسجيل</h3>
+
+              <div class="reg-status-step">
+                <div class="reg-step-num done">✓</div>
+                <div>
+                  <div style="font-weight:700; font-size:var(--font-size-sm);" data-i18n="services_div_21">سداد الرسوم
+                    الدراسية الفصلية</div>
+                  <div style="font-size:var(--font-size-xs); color:var(--text-muted);" data-i18n="services_div_22">تم
+                    بنجاح بتاريخ ١ يوليو ٢٠٢٦ — إيداع بنكي</div>
+                </div>
+              </div>
+
+              <div class="reg-status-step">
+                <div class="reg-step-num done">✓</div>
+                <div>
+                  <div style="font-weight:700; font-size:var(--font-size-sm);" data-i18n="services_div_23">مراجعة
+                    الكنترول والشؤون الأكاديمية</div>
+                  <div style="font-size:var(--font-size-xs); color:var(--text-muted);" data-i18n="services_div_24">مكتمل
+                    — لا توجد مواد معلقة من الفصل السابق</div>
+                </div>
+              </div>
+
+              <div class="reg-status-step">
+                <div class="reg-step-num active">3</div>
+                <div>
+                  <div style="font-weight:700; font-size:var(--font-size-sm); color:var(--color-primary);"
+                    data-i18n="services_div_25">تسجيل المقررات إلكترونياً</div>
+                  <div style="font-size:var(--font-size-xs); color:var(--text-muted);" data-i18n="services_div_26">الباب
+                    مفتوح — سجّل مقرراتك الآن عبر البوابة</div>
+                </div>
+              </div>
+
+              <div class="reg-status-step">
+                <div class="reg-step-num pending">4</div>
+                <div>
+                  <div style="font-weight:700; font-size:var(--font-size-sm); color:var(--text-muted);"
+                    data-i18n="services_div_27">اعتماد الجدول النهائي</div>
+                  <div style="font-size:var(--font-size-xs); color:var(--text-muted);" data-i18n="services_div_28">في
+                    انتظار إتمام تسجيل المقررات أولاً</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:var(--space-lg);">
+              <h3
+                style="font-family:var(--font-headings); font-size:var(--font-size-md); margin-bottom:var(--space-sm);"
+                data-i18n="services_h3_29">اختر مقرراتك للفصل القادم</h3>
+              <p style="font-size:var(--font-size-sm); color:var(--text-muted); margin-bottom:var(--space-sm);"
+                data-i18n="services_p_30">اختر الأقسام وأكواد المقررات المتاحة لتسجيلها ضمن ساعاتك المعتمدة لهذا الفصل.
+              </p>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="reg-dept" data-i18n="services_label_31">القسم الدراسي</label>
+                  <select id="reg-dept">
+                    <option value="" data-i18n="services_option_32">-- اختر قسمك --</option>
+                    <option data-i18n="services_option_33">قسم علوم الحاسب (CS)</option>
+                    <option data-i18n="services_option_34">قسم نظم المعلومات الإدارية (BIS)</option>
+                    <option data-i18n="services_option_35">قسم إدارة الأعمال والمحاسبة</option>
+                    <option data-i18n="services_option_36">قسم العلوم الأساسية</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="reg-year" data-i18n="services_label_37">الفرقة الدراسية</label>
+                  <select id="reg-year">
+                    <option value="" data-i18n="services_option_38">-- اختر الفرقة --</option>
+                    <option data-i18n="services_option_39">الفرقة الأولى</option>
+                    <option data-i18n="services_option_40">الفرقة الثانية</option>
+                    <option data-i18n="services_option_41">الفرقة الثالثة</option>
+                    <option data-i18n="services_option_42">الفرقة الرابعة</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-primary" style="margin-top:var(--space-sm);"
+                onclick="alert('تم إرسال طلب التسجيل للمراجعة! ستتلقى رسالة تأكيد على بريدك الإلكتروني المسجل خلال ٢٤ ساعة.')"
+                data-i18n="services_button_43">تأكيد الاختيارات وإرسال طلب التسجيل</button>
+            </div>
+          </div>
+
+
+          <!-- 3. ACADEMIC CALENDAR -->
+          <div class="portal-panel-section" id="panel-calendar">
+            <h2 class="panel-title">
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span data-i18n="services_panel_calendar_title">التقويم الأكاديمي ٢٠٢٦/٢٠٢٧</span>
+            </h2>
+            <p class="panel-subtitle" data-i18n="services_p_44">الجدول الزمني الكامل لمحطات الفصل الدراسي — الإجازات
+              والامتحانات والأنشطة الرئيسية.</p>
+
+            <div class="cal-event">
+              <div class="cal-badge">
+                <div class="day" data-i18n="services_div_45">٠١</div>
+                <div class="mon" data-i18n="services_div_46">أغسطس</div>
+              </div>
+              <div class="cal-info">
+                <h4 data-i18n="services_h4_47">بداية الفصل الدراسي الأول ٢٠٢٦/٢٠٢٧</h4>
+                <p data-i18n="services_p_48">انطلاق المحاضرات الرسمية لجميع الفرق الدراسية بالقاعات والمعامل</p>
+              </div>
+              <span class="badge badge-primary" style="white-space:nowrap;" data-i18n="services_span_49">فصل
+                دراسي</span>
+            </div>
+
+            <div class="cal-event">
+              <div class="cal-badge" style="background: var(--gradient-dark);">
+                <div class="day" data-i18n="services_div_50">١٥</div>
+                <div class="mon" data-i18n="services_div_46">أغسطس</div>
+              </div>
+              <div class="cal-info">
+                <h4 data-i18n="services_h4_51">آخر موعد للتسجيل في المقررات وإضافة/حذف المواد</h4>
+                <p data-i18n="services_p_52">يتعين على الطلاب إتمام التسجيل قبل هذا الموعد بدون استثناء</p>
+              </div>
+              <span class="badge badge-gold" style="white-space:nowrap;" data-i18n="services_span_53">تسجيل</span>
+            </div>
+
+            <div class="cal-event">
+              <div class="cal-badge" style="background: linear-gradient(135deg, #10b981, #059669);">
+                <div class="day" data-i18n="services_div_54">٠٥</div>
+                <div class="mon" data-i18n="services_div_55">سبتمبر</div>
+              </div>
+              <div class="cal-info">
+                <h4 data-i18n="services_h4_56">إجازة موسم المدارس والأعياد الوطنية</h4>
+                <p data-i18n="services_p_57">عطلة رسمية لجميع العاملين والطلاب لمدة أسبوع كامل</p>
+              </div>
+              <span class="badge" style="background:rgba(16,185,129,0.1); color:#065f46; white-space:nowrap;"
+                data-i18n="services_span_58">إجازة</span>
+            </div>
+
+            <div class="cal-event">
+              <div class="cal-badge" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
+                <div class="day" data-i18n="services_div_50">١٥</div>
+                <div class="mon" data-i18n="services_div_59">نوفمبر</div>
+              </div>
+              <div class="cal-info">
+                <h4 data-i18n="services_h4_60">بداية امتحانات النصف الدراسي الأول (Midterm)</h4>
+                <p data-i18n="services_p_61">امتحانات تشمل جميع المقررات النظرية والمعملية للفصل الأول</p>
+              </div>
+              <span class="badge" style="background:rgba(99,102,241,0.1); color:#4f46e5; white-space:nowrap;"
+                data-i18n="services_span_62">امتحانات</span>
+            </div>
+
+            <div class="cal-event">
+              <div class="cal-badge" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                <div class="day" data-i18n="services_div_50">١٥</div>
+                <div class="mon" data-i18n="services_div_63">يناير</div>
+              </div>
+              <div class="cal-info">
+                <h4 data-i18n="services_h4_64">امتحانات نهاية الفصل الدراسي الأول</h4>
+                <p data-i18n="services_p_65">الامتحانات النهائية — يُعلن الجدول التفصيلي في ١ ديسمبر</p>
+              </div>
+              <span class="badge badge-gold" style="white-space:nowrap;" data-i18n="services_span_66">نهاية الفصل</span>
+            </div>
+
+            <div class="cal-event">
+              <div class="cal-badge">
+                <div class="day" data-i18n="services_div_45">٠١</div>
+                <div class="mon" data-i18n="services_div_67">فبراير</div>
+              </div>
+              <div class="cal-info">
+                <h4 data-i18n="services_h4_68">بداية الفصل الدراسي الثاني ٢٠٢٦/٢٠٢٧</h4>
+                <p data-i18n="services_p_69">انطلاق دراسة الفصل الثاني بعد إعلان نتائج الفصل الأول رسمياً</p>
+              </div>
+              <span class="badge badge-primary" style="white-space:nowrap;" data-i18n="services_span_49">فصل
+                دراسي</span>
+            </div>
+
+            <div class="cal-event">
+              <div class="cal-badge" style="background: var(--gradient-dark);">
+                <div class="day" data-i18n="services_div_50">١٥</div>
+                <div class="mon" data-i18n="services_div_67">فبراير</div>
+              </div>
+              <div class="cal-info">
+                <h4 data-i18n="services_h4_141">آخر موعد للتسجيل في مقررات الفصل الثاني وإضافة/حذف المواد</h4>
+                <p data-i18n="services_p_142">يتعين على الطلاب إتمام تسجيل مقررات الفصل الثاني قبل هذا الموعد</p>
+              </div>
+              <span class="badge badge-gold" style="white-space:nowrap;" data-i18n="services_span_53">تسجيل</span>
+            </div>
+
+            <div class="cal-event">
+              <div class="cal-badge" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
+                <div class="day" data-i18n="services_div_45">٠١</div>
+                <div class="mon" data-i18n="services_div_143">أبريل</div>
+              </div>
+              <div class="cal-info">
+                <h4 data-i18n="services_h4_144">بداية امتحانات النصف الدراسي الثاني (Midterm)</h4>
+                <p data-i18n="services_p_145">امتحانات تشمل جميع المقررات النظرية والمعملية للفصل الثاني</p>
+              </div>
+              <span class="badge" style="background:rgba(99,102,241,0.1); color:#4f46e5; white-space:nowrap;"
+                data-i18n="services_span_62">امتحانات</span>
+            </div>
+
+            <div class="cal-event">
+              <div class="cal-badge" style="background: linear-gradient(135deg, #10b981, #059669);">
+                <div class="day" data-i18n="services_div_146">٢٥</div>
+                <div class="mon" data-i18n="services_div_143">أبريل</div>
+              </div>
+              <div class="cal-info">
+                <h4 data-i18n="services_h4_147">إجازة أعياد الربيع والعطلات الرسمية</h4>
+                <p data-i18n="services_p_148">عطلة رسمية لجميع العاملين والطلاب — شم النسيم وعيد تحرير سيناء</p>
+              </div>
+              <span class="badge" style="background:rgba(16,185,129,0.1); color:#065f46; white-space:nowrap;"
+                data-i18n="services_span_58">إجازة</span>
+            </div>
+
+            <div class="cal-event">
+              <div class="cal-badge" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                <div class="day" data-i18n="services_div_149">١٠</div>
+                <div class="mon" data-i18n="services_div_150">يونيو</div>
+              </div>
+              <div class="cal-info">
+                <h4 data-i18n="services_h4_151">امتحانات نهاية الفصل الدراسي الثاني</h4>
+                <p data-i18n="services_p_152">الامتحانات النهائية — يُعلن الجدول التفصيلي في ١ مايو</p>
+              </div>
+              <span class="badge badge-gold" style="white-space:nowrap;" data-i18n="services_span_66">نهاية الفصل</span>
+            </div>
+
+            <div class="cal-event">
+              <div class="cal-badge" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">
+                <div class="day" data-i18n="services_div_45">٠١</div>
+                <div class="mon" data-i18n="services_div_153">يوليو</div>
+              </div>
+              <div class="cal-info">
+                <h4 data-i18n="services_h4_154">إعلان النتائج النهائية وبدء التدريب الصيفي</h4>
+                <p data-i18n="services_p_155">إعلان نتائج العام الأكاديمي رسمياً وفتح باب التسجيل في التدريب الصيفي</p>
+              </div>
+              <span class="badge" style="background:rgba(6,182,212,0.1); color:#0e7490; white-space:nowrap;"
+                data-i18n="services_span_156">تدريب صيفي</span>
+            </div>
+          </div>
+
+
+          <!-- 4. DIGITAL LIBRARY -->
+          <div class="portal-panel-section" id="panel-library">
+            <h2 class="panel-title">
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              <span data-i18n="services_panel_library_title">المكتبة الرقمية</span>
+            </h2>
+            <p class="panel-subtitle" data-i18n="services_p_70">البحث في الكتب والمراجع والدوريات العلمية الرقمية
+              المتاحة لطلاب المعهد مجاناً.</p>
+
+            <div class="lib-search-bar">
+              <input type="text" id="lib-search-input" placeholder="ابحث عن كتاب أو مرجع..."
+                aria-label="بحث في المكتبة الرقمية" data-i18n-placeholder="services_lib_search_placeholder"
+                data-i18n-aria="services_lib_search_aria">
+              <button id="lib-search-btn" data-i18n="services_button_71">بحث</button>
+            </div>
+
+            <div id="lib-results">
+              <!-- Default books shown always -->
+              <div class="book-card">
+                <div class="book-cover" style="background: var(--gradient-primary);">📘</div>
+                <div style="flex:1;">
+                  <div style="font-weight:700; font-size:var(--font-size-base); margin-bottom:2px;"
+                    data-i18n="services_div_72">مقدمة في علم الخوارزميات وهياكل البيانات</div>
+                  <div style="font-size:var(--font-size-xs); color:var(--text-muted);" data-i18n="services_div_73">
+                    تأليف: Thomas H. Cormen | الإصدار الثالث | رياضيات تطبيقية</div>
+                  <div style="margin-top:6px; display:flex; gap:8px;">
+                    <span class="badge badge-primary" data-i18n="services_span_74">علوم الحاسب</span>
+                    <a class="btn btn-outline" style="padding:4px 12px; font-size:10px;"
+                      href="assets/library/lecture-3.pdf" download data-i18n="services_button_75">تحميل
+                      PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="book-card">
+                <div class="book-cover" style="background: var(--gradient-dark);">📙</div>
+                <div style="flex:1;">
+                  <div style="font-weight:700; font-size:var(--font-size-base); margin-bottom:2px;"
+                    data-i18n="services_div_76">نظم المعلومات الإدارية - التحليل والتصميم</div>
+                  <div style="font-size:var(--font-size-xs); color:var(--text-muted);" data-i18n="services_div_77">
+                    تأليف: James A. O'Brien | الطبعة السادسة | نظم الأعمال</div>
+                  <div style="margin-top:6px; display:flex; gap:8px;">
+                    <span class="badge badge-gold" data-i18n="services_span_78">نظم المعلومات</span>
+                    <a class="btn btn-outline" style="padding:4px 12px; font-size:10px;"
+                      href="assets/library/lecture-3.pdf" download data-i18n="services_button_75">تحميل
+                      PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="book-card">
+                <div class="book-cover" style="background: linear-gradient(135deg, #10b981, #059669);">📗</div>
+                <div style="flex:1;">
+                  <div style="font-weight:700; font-size:var(--font-size-base); margin-bottom:2px;"
+                    data-i18n="services_div_79">أساسيات المحاسبة المالية والتطبيقات العملية</div>
+                  <div style="font-size:var(--font-size-xs); color:var(--text-muted);" data-i18n="services_div_80">
+                    تأليف: أ.د. طارق عبد العال حماد | الطبعة الخامسة | علوم المال</div>
+                  <div style="margin-top:6px; display:flex; gap:8px;">
+                    <span class="badge" style="background:rgba(16,185,129,0.1); color:#065f46;"
+                      data-i18n="services_span_81">إدارة الأعمال</span>
+                    <a class="btn btn-outline" style="padding:4px 12px; font-size:10px;"
+                      href="assets/library/lecture-3.pdf" download data-i18n="services_button_75">تحميل
+                      PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="book-card">
+                <div class="book-cover" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">📔</div>
+                <div style="flex:1;">
+                  <div style="font-weight:700; font-size:var(--font-size-base); margin-bottom:2px;"
+                    data-i18n="services_div_82">حساب التفاضل والتكامل وتطبيقاته في علوم الحاسب</div>
+                  <div style="font-size:var(--font-size-xs); color:var(--text-muted);" data-i18n="services_div_83">
+                    تأليف: Gilbert Strang | MIT OpenCourseWare | رياضيات</div>
+                  <div style="margin-top:6px; display:flex; gap:8px;">
+                    <span class="badge" style="background:rgba(99,102,241,0.1); color:#4f46e5;"
+                      data-i18n="services_span_84">علوم أساسية</span>
+                    <a class="btn btn-outline" style="padding:4px 12px; font-size:10px;"
+                      href="assets/library/lecture-3.pdf" download data-i18n="services_button_75">تحميل
+                      PDF</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script>
+              document.addEventListener('DOMContentLoaded', () => {
+                const libSearchInput = document.getElementById('lib-search-input');
+                const libSearchBtn = document.getElementById('lib-search-btn');
+                const libBooks = [
+                  { title: 'مقدمة في علم الخوارزميات وهياكل البيانات', author: 'Thomas H. Cormen', dept: 'علوم الحاسب', badgeStyle: 'badge-primary', icon: '📘', bg: 'var(--gradient-primary)' },
+                  { title: 'نظم المعلومات الإدارية - التحليل والتصميم', author: 'James A. O\'Brien', dept: 'نظم المعلومات', badgeStyle: 'badge-gold', icon: '📙', bg: 'var(--gradient-dark)' },
+                  { title: 'أساسيات المحاسبة المالية والتطبيقات العملية', author: 'أ.د. طارق عبد العال حماد', dept: 'إدارة الأعمال', badgeStyle: '', icon: '📗', bg: 'linear-gradient(135deg, #10b981, #059669)' },
+                  { title: 'حساب التفاضل والتكامل وتطبيقاته في علوم الحاسب', author: 'Gilbert Strang', dept: 'علوم أساسية', badgeStyle: '', icon: '📔', bg: 'linear-gradient(135deg, #6366f1, #4f46e5)' },
+                  { title: 'الشبكات الحاسوبية وبروتوكولات الإنترنت', author: 'Andrew S. Tanenbaum', dept: 'علوم الحاسب', badgeStyle: 'badge-primary', icon: '💻', bg: 'var(--gradient-primary)' },
+                  { title: 'قواعد البيانات العلائقية وSQL', author: 'أ.د. محمد منصور', dept: 'نظم المعلومات', badgeStyle: 'badge-gold', icon: '🗄️', bg: 'var(--gradient-dark)' },
+                ];
+
+                function renderBooks(list) {
+                  const container = document.getElementById('lib-results');
+                  if (!list || list.length === 0) {
+                    container.innerHTML = '<p style="text-align:center; padding:24px; color:var(--text-muted);">لم يتم العثور على نتائج مطابقة.</p>';
+                    return;
+                  }
+                  container.innerHTML = list.map(b => `
+                    <div class="book-card">
+                      <div class="book-cover" style="background:${b.bg};">${b.icon}</div>
+                      <div style="flex:1;">
+                        <div style="font-weight:700; font-size:var(--font-size-base); margin-bottom:2px;">${b.title}</div>
+                        <div style="font-size:var(--font-size-xs); color:var(--text-muted);">تأليف: ${b.author}</div>
+                        <div style="margin-top:6px; display:flex; gap:8px; align-items:center;">
+                          <span class="badge ${b.badgeStyle}">${b.dept}</span>
+                          <a class="btn btn-outline" style="padding:4px 12px; font-size:10px;" href="assets/library/lecture-3.pdf" download data-i18n="services_button_75">تحميل PDF</a>
+                        </div>
+                      </div>
+                    </div>
+                  `).join('');
+                }
+
+                function search() {
+                  const term = libSearchInput.value.trim().toLowerCase();
+                  if (!term) { renderBooks(libBooks); return; }
+                  const filtered = libBooks.filter(b => b.title.toLowerCase().includes(term) || b.author.toLowerCase().includes(term) || b.dept.toLowerCase().includes(term));
+                  renderBooks(filtered);
+                }
+
+                libSearchBtn.addEventListener('click', search);
+                libSearchInput.addEventListener('keyup', e => { if (e.key === 'Enter') search(); });
+              });
+            </script>
+          </div>
+
+
+          <!-- 5. LMS COURSES -->
+          <div class="portal-panel-section" id="panel-lms">
+            <h2 class="panel-title">
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span data-i18n="services_panel_lms_title">منصة التعلم الإلكتروني (LMS)</span>
+            </h2>
+            <p class="panel-subtitle" data-i18n="services_p_85">تحميل المحاضرات والمستندات والامتحانات الدراسية لمقرراتك
+              المسجلة في هذا الفصل.</p>
+
+            <div id="portal-lms-list">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+
+          <!-- 6. COMPLAINTS -->
+          <div class="portal-panel-section" id="panel-complaints">
+            <h2 class="panel-title">
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+              </svg>
+              <span data-i18n="services_panel_complaints_title">الشكاوى والاستفسارات</span>
+            </h2>
+            <p class="panel-subtitle" data-i18n="services_p_86">أرسل شكواك أو استفسارك وتابع حالته في الوقت الحقيقي.
+              جميع الشكاوى تُراجع خلال ٤٨ ساعة.</p>
+
+            <!-- Complaint Form -->
+            <form class="portal-form" id="portal-complaints-form" style="max-width:560px;">
+              <div class="form-field">
+                <label for="complaint-identity" data-i18n="services_label_identity">صفة مقدّم الشكوى</label>
+                <select id="complaint-identity" required>
+                  <option value="" data-i18n="services_identity_choose">-- اختر الصفة --</option>
+                  <option value="student" data-i18n="services_identity_student">طالب</option>
+                  <option value="parent" data-i18n="services_identity_parent">ولي أمر</option>
+                  <option value="graduate" data-i18n="services_identity_graduate">خريج</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="complaint-category" data-i18n="services_label_87">موضوع الشكوى أو الاستفسار</label>
+                <select id="complaint-category" required>
+                  <option value="" data-i18n="services_option_88">-- اختر الموضوع --</option>
+                  <option value="portal" data-i18n="services_option_89">بوابة الطالب وخدماتها الإلكترونية</option>
+                  <option value="exams" data-i18n="services_option_90">الامتحانات والدرجات والكنترول</option>
+                  <option value="faculty" data-i18n="services_option_91">أعضاء التدريس والشؤون الدراسية</option>
+                  <option value="financial" data-i18n="services_option_92">الشؤون المالية والرسوم</option>
+                  <option value="other" data-i18n="services_option_93">أخرى</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="complaint-text" data-i18n="services_label_94">تفاصيل الشكوى أو الاستفسار</label>
+                <textarea id="complaint-text" placeholder="اكتب تفاصيل مشكلتك أو سؤالك بشكل واضح ومفصّل..."
+                  data-i18n-placeholder="services_complaint_placeholder" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="align-self:flex-start; padding:12px 28px;"
+                data-i18n="services_button_95">إرسال الشكوى / الاستفسار</button>
+            </form>
+
+            <!-- Complaints Log -->
+            <div style="margin-top:var(--space-lg);">
+              <h3
+                style="font-family:var(--font-headings); font-size:var(--font-size-md); margin-bottom:var(--space-sm); font-weight:700;"
+                data-i18n="services_h3_96">سجل شكاواك المرسلة</h3>
+              <div id="portal-complaints-list">
+                <p style="font-size:var(--font-size-xs); color:var(--text-muted); text-align:center; padding:16px; background:var(--color-bg-neutral); border-radius:var(--radius-md);"
+                  data-i18n="services_p_97">لا توجد شكاوى أو استفسارات مسجلة باسمك حالياً.</p>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- 7. CERTIFICATES -->
+          <div class="portal-panel-section" id="panel-certificates">
+            <h2 class="panel-title">
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+              <span data-i18n="services_panel_certificates_title">طلب استخراج شهادات رسمية</span>
+            </h2>
+            <p class="panel-subtitle" data-i18n="services_p_98">تقديم طلبات استخراج الشهادات والوثائق الأكاديمية الرسمية
+              إلكترونياً.</p>
+
+            <div class="form-row" style="margin-bottom:var(--space-md);">
+              <div class="card"
+                style="padding:var(--space-md); text-align:center; border-top:4px solid var(--color-primary); cursor:pointer;"
+                onclick="document.getElementById('cert-type').value='transcript'">
+                <div style="font-size:2rem; margin-bottom:8px;">📋</div>
+                <h4 style="font-family:var(--font-headings); margin-bottom:4px;" data-i18n="services_h4_99">كشف الدرجات
+                  الموثق</h4>
+                <p style="font-size:var(--font-size-xs); color:var(--text-muted);" data-i18n="services_p_100">كشف كامل
+                  بالمقررات والدرجات مختوم ومصدّق</p>
+              </div>
+              <div class="card"
+                style="padding:var(--space-md); text-align:center; border-top:4px solid var(--color-accent-gold); cursor:pointer;"
+                onclick="document.getElementById('cert-type').value='enrollment'">
+                <div style="font-size:2rem; margin-bottom:8px;">🏫</div>
+                <h4 style="font-family:var(--font-headings); margin-bottom:4px;" data-i18n="services_h4_101">شهادة قيد
+                  وانتساب</h4>
+                <p style="font-size:var(--font-size-xs); color:var(--text-muted);" data-i18n="services_p_102">تثبت
+                  انتسابك ودراستك بالمعهد في الفصل الحالي</p>
+              </div>
+              <div class="card"
+                style="padding:var(--space-md); text-align:center; border-top:4px solid #10b981; cursor:pointer;"
+                onclick="document.getElementById('cert-type').value='conduct'">
+                <div style="font-size:2rem; margin-bottom:8px;">✅</div>
+                <h4 style="font-family:var(--font-headings); margin-bottom:4px;" data-i18n="services_h4_103">شهادة حسن
+                  سلوك</h4>
+                <p style="font-size:var(--font-size-xs); color:var(--text-muted);" data-i18n="services_p_104">وثيقة
+                  رسمية تُصدر للتوظيف والبعثات الدراسية</p>
+              </div>
+            </div>
+
+            <form class="portal-form" id="portal-cert-form" style="max-width:560px;">
+              <div class="form-field">
+                <label for="cert-name" data-i18n="services_label_105">الاسم الرباعي كما في الشهادة</label>
+                <input type="text" id="cert-name" placeholder="مثال: كريم أحمد محمد السعيد"
+                  data-i18n-placeholder="services_cert_name_ph" required>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="cert-code" data-i18n="services_label_106">الرقم الأكاديمي</label>
+                  <input type="text" id="cert-code" placeholder="مثال: 202601"
+                    data-i18n-placeholder="services_cert_code_ph" required>
+                </div>
+                <div class="form-field">
+                  <label for="cert-type" data-i18n="services_label_107">نوع الشهادة المطلوبة</label>
+                  <select id="cert-type" required>
+                    <option value="" data-i18n="services_option_108">-- اختر الشهادة --</option>
+                    <option value="transcript" data-i18n="services_option_109">كشف درجات موثق</option>
+                    <option value="enrollment" data-i18n="services_h4_101">شهادة قيد وانتساب</option>
+                    <option value="conduct" data-i18n="services_h4_103">شهادة حسن سلوك</option>
+                    <option value="graduation" data-i18n="services_option_110">شهادة التخرج</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="cert-purpose" data-i18n="services_label_111">الغرض من الشهادة</label>
+                <input type="text" id="cert-purpose" placeholder="مثال: تقديم للتوظيف / بعثة دراسية / ترقية"
+                  data-i18n-placeholder="services_cert_purpose_ph" required>
+              </div>
+              <button type="submit" class="btn btn-primary" style="align-self:flex-start; padding:12px 28px;"
+                data-i18n="services_button_112">تقديم طلب الشهادة</button>
+            </form>
+          </div>
+
+
+          <!-- 8. INTERNSHIPS & CAREER -->
+          <div class="portal-panel-section" id="panel-internships">
+            <h2 class="panel-title">
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span data-i18n="services_panel_internships_title">التدريب الميداني والتوظيف</span>
+            </h2>
+            <p class="panel-subtitle" data-i18n="services_p_113">فرص التدريب الصيفي والمنح المؤسسية المتاحة لطلاب
+              المعهد. سجّل اهتمامك ليتواصل معك مركز التوظيف.</p>
+
+            <div id="portal-internships-grid">
+              <!-- Populated by JS from data.js -->
+            </div>
+
+            <!-- Career Tips -->
+            <div
+              style="margin-top:var(--space-lg); padding:var(--space-md); background:var(--color-primary-light); border-radius:var(--radius-md); border:1px solid rgba(230,95,43,0.15);">
+              <h3
+                style="font-family:var(--font-headings); font-size:var(--font-size-md); color:var(--color-primary); margin-bottom:var(--space-sm);"
+                data-i18n="services_h3_114">💡 نصائح من مركز التوظيف والخريجين</h3>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:8px;">
+                <li style="font-size:var(--font-size-sm); color:var(--text-muted); display:flex; gap:8px;">
+                  <span style="color:var(--color-primary); font-weight:700;">•</span>
+                  <span data-i18n="services_career_tip_1">حدّث سيرتك الذاتية على LinkedIn وأضف مشروعاتك التقنية وملفات
+                    GitHub الخاصة بك.</span>
+                </li>
+                <li style="font-size:var(--font-size-sm); color:var(--text-muted); display:flex; gap:8px;">
+                  <span style="color:var(--color-primary); font-weight:700;">•</span>
+                  <span data-i18n="services_career_tip_2">احضر ملتقيات التوظيف السنوية التي ينظمها المعهد وتواصل مع
+                    ممثلي الشركات مباشرة.</span>
+                </li>
+                <li style="font-size:var(--font-size-sm); color:var(--text-muted); display:flex; gap:8px;">
+                  <span style="color:var(--color-primary); font-weight:700;">•</span>
+                  <span data-i18n="services_career_tip_3">الشهادات الاحترافية كـ AWS أو Google Cloud تُضاعف فرص القبول
+                    في وظائف تقنية مميزة.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div><!-- end portal-body-panel -->
+      </div><!-- end portal-container -->
+    </div>
+  </section>
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <!-- 12. FOOTER -->
+  <!-- 12. FOOTER -->
+  <!-- 12. FOOTER -->
+  <!-- 12. FOOTER -->
+  <!-- 12. FOOTER -->
+  <!-- 12. FOOTER -->
+  <footer class="main-footer">
+    <div class="container footer-grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-lg);">
+      <!-- About Col -->
+      <div class="footer-col">
+        <img src="assets/logo-white.png" alt="CIS Logo" class="footer-logo-img">
+        <p style="color:var(--text-light-muted); font-size:var(--font-size-sm); line-height:1.6; margin-bottom:var(--space-md);"
+          data-i18n="footer_about_text">مؤسسة أكاديمية رائدة تأسست عام ٢٠٠١، تلتزم بتقديم تجربة تعليمية من الطراز الأول
+          للمساهمة في ريادة أعمال المستقبل الرقمي في مصر والشرق الأوسط.</p>
+        <div style="display:flex; gap:10px;">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/CIS.EDU1/" target="_blank"
+            style="background:#1877F2; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:16px;"
+            aria-label="Facebook">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h2V1h-3C10 1 9 2.5 9 5.5V8z" />
+            </svg>
+          </a>
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/channel/UCoRUJ2St0Bx7WjKdbTqOvkQ" target="_blank"
+            style="background:#FF0000; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:16px;"
+            aria-label="YouTube">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M23.5 6.2c-.3-1.1-1.2-2-2.3-2.3C19.2 3.5 12 3.5 12 3.5s-7.2 0-9.2.4C1.7 4.2.8 5.1.5 6.2.1 8.2.1 12 .1 12s0 3.8.4 5.8c.3 1.1 1.2 2 2.3 2.3 2 2.4 9.2 2.4 9.2 2.4s7.2 0 9.2-.4c1.1-.3 2-1.2 2.3-2.3.4-2 .4-5.8.4-5.8s0-3.8-.4-5.8zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z" />
+            </svg>
+          </a>
+          <!-- Whatsapp -->
+          <a href="https://wa.me/201553849065" target="_blank"
+            style="background:#25D366; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:16px;"
+            aria-label="Whatsapp">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12.012 2C6.48 2 2 6.48 2 12.012c0 1.764.462 3.48 1.344 5.004L2 22l5.124-1.344c1.476.804 3.132 1.224 4.884 1.224 5.532 0 10.012-4.48 10.012-10.012C22.02 6.48 17.544 2 12.012 2zm6.276 14.316c-.252.708-1.464 1.392-2.028 1.488-.504.084-1.164.156-3.324-.732-2.76-1.14-4.524-3.96-4.656-4.14-.132-.18-.984-1.308-.984-2.496 0-1.188.624-1.776.84-2.016.216-.24.48-.3.636-.3.156 0 .312 0 .444.012.144.012.336-.06.528.408.204.492.696 1.704.756 1.824.06.12.096.264.012.432-.084.168-.18.276-.3.42-.12.144-.252.324-.36.444-.12.132-.24.276-.108.504.132.228.588.972 1.26 1.572.864.768 1.596 1.008 1.824 1.116.228.108.36.096.492-.048.132-.144.564-.66.72-.888.156-.228.312-.192.528-.108.216.084 1.368.648 1.608.768.24.12.396.18.456.288.06.096.06.564-.192 1.272z" />
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/new_cairo_academy_1" target="_blank"
+            style="background:#E1306C; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:16px;"
+            aria-label="Instagram">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact & Map Column -->
+      <div class="footer-col">
+        <h4 data-i18n="footer_contact_title">تواصل معنا</h4>
+        <div
+          style="border-radius:var(--radius-sm); overflow:hidden; height:110px; margin-bottom:var(--space-xs); border: 1px solid rgba(255,255,255,0.1);">
+          <div
+            style="width:100%; height:100%; background: radial-gradient(circle at 40% 50%, #fef3c7 20%, #dbeafe 100%); position:relative;">
+            <!-- Roads and marker -->
+            <div
+              style="position:absolute; width:150%; height:10px; background:#ffffff; top:45%; left:-25%; transform:rotate(-15deg);">
+            </div>
+            <div
+              style="position:absolute; width:150%; height:8px; background:#ffffff; top:35%; left:-25%; transform:rotate(40deg);">
+            </div>
+            <div
+              style="position:absolute; top:40%; left:38%; width:12px; height:12px; border-radius:50% 50% 50% 0; background:var(--color-primary); transform: rotate(-45deg); border:1px solid white;">
+            </div>
+            <a href="https://maps.app.goo.gl/z3WJfSGnq1EZ78146" target="_blank" rel="noopener"
+              data-i18n="footer_map_link"
+              style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(15,15,16,0.4); color:white; font-family:var(--font-headings); font-weight:800; font-size:var(--font-size-xs); text-decoration:none; transition:background 0.2s;"
+              onmouseover="this.style.background='rgba(15,15,16,0.6)'"
+              onmouseout="this.style.background='rgba(15,15,16,0.4)'">فتح الخريطة التفاعلية 🔗</a>
+          </div>
+        </div>
+        <div
+          style="font-size:var(--font-size-xs); color:var(--text-light-muted); display:flex; flex-direction:column; gap:6px;">
+          <span><span data-i18n="footer_email_label">✉️ البريد الإلكتروني:</span> <a href="mailto:info@cis.edu.eg"
+              style="color:var(--color-primary); font-weight:700; text-decoration:none;">info@cis.edu.eg</a></span>
+          <span><span data-i18n="footer_address_label">📍 العنوان:</span> <span data-i18n="footer_address_text">التجمع
+              الخامس - امتداد مرتفعات الجولف - بعد جهاز المدينة</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom" style="justify-content:center; text-align:center;">
+      <span data-i18n="footer_copyright">حقوق النشر © ٢٠٢٦ المعهد العالي لعلوم الحاسب ونظم المعلومات الإدارية (CIS).
+        جميع الحقوق محفوظة.</span>
+    </div>
+  </footer>
+
+  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="العودة للأعلى">
+    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </button>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // ---- Portal Tab Switcher ----
+    const tabBtns = document.querySelectorAll('.portal-tab-btn');
+    const panels = document.querySelectorAll('.portal-panel-section');
+
+    function activatePanel(panelId) {
+      const btn = document.querySelector(`.portal-tab-btn[data-panel="${panelId}"]`);
+      const target = document.getElementById('panel-' + panelId);
+      if (!btn || !target) return false;
+
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      target.classList.add('active');
+      return true;
+    }
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const panelId = btn.getAttribute('data-panel');
+        activatePanel(panelId);
+        // Keep the URL in sync so the open panel survives a refresh and can be shared.
+        history.replaceState(null, '', '#' + panelId);
+      });
+    });
+
+    // Open the panel named in the URL (services.html#lms and friends, which the
+    // header dropdown links to). This runs on first load AND on every hashchange:
+    // when the page is already open, those dropdown links only change the hash,
+    // which navigates within the document without reloading — so a load-time-only
+    // pass would never react to them and the panel would appear stuck.
+    function activateFromHash() {
+      const hash = window.location.hash.replace('#', '');
+      if (!hash) return;
+      if (activatePanel(hash)) {
+        // Bring the portal into view; the panel sits well below the fold.
+        const portal = document.querySelector('.portal-container');
+        if (portal) portal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    activateFromHash();
+    window.addEventListener('hashchange', activateFromHash);
+  </script>
+  <!-- ===================== GLOBAL SEARCH MODAL ===================== -->
+  <div class="search-modal-backdrop" id="site-search-modal-backdrop">
+    <div class="search-modal-container">
+      <div class="search-modal-header">
+        <span style="font-size:1.2rem;">🔍</span>
+        <input type="text" class="search-modal-input"
+          placeholder="Search anything inside the Higher Institute (departments, services, news)...">
+        <button class="search-modal-close-btn">&times;</button>
+      </div>
+      <div class="search-modal-body">
+        <!-- Recent searches -->
+        <h5 style="font-size:11px; color:var(--text-muted); font-weight:800; margin-bottom:4px;">🔍 عمليات البحث الأخيرة
+        </h5>
+        <div class="search-chip-group" id="search-recent-box">
+          <!-- Chips -->
+        </div>
+
+        <!-- Popular links -->
+        <h5 style="font-size:11px; color:var(--text-muted); font-weight:800; margin-bottom:4px; margin-top:12px;">🌟
+          روابط شائعة ومباشرة</h5>
+        <div class="search-chip-group" style="margin-bottom:16px;">
+          <span class="search-history-chip" onclick="triggerPresetSearch('results')">Student Results & Grades 🎓</span>
+          <span class="search-history-chip" onclick="triggerPresetSearch('cs')">Computer Science Division 🖥️</span>
+          <span class="search-history-chip" onclick="triggerPresetSearch('admissions')">Admissions & Registration
+            📋</span>
+          <span class="search-history-chip" onclick="triggerPresetSearch('it')">IT Technical Support Unit 🛠️</span>
+        </div>
+
+        <!-- Results output -->
+        <h5
+          style="font-size:11px; color:var(--text-muted); font-weight:800; margin-bottom:8px; border-top:1px solid rgba(15,15,16,0.06); padding-top:12px;">
+          🎯 نتائج البحث المطابقة</h5>
+        <div id="search-suggestions-box" style="display:flex; flex-direction:column; gap:4px;">
+          <!-- Hit rows -->
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+</body>
+
+</html>

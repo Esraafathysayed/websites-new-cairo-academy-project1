@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="تواصل مع المعهد العالي لعلوم الحاسب ونظم المعلومات الإدارية CIS - خريطة تفاعلية، أرقام الطوارئ، الدعم الفني، وخدمة العملاء.">
+  <title data-i18n="contact_title_1">اتصل بنا | المعهد العالي لعلوم الحاسب ونظم المعلومات الإدارية</title>
+  <link rel="icon" type="image/png" href="assets/logo-white.png">
+  <link rel="apple-touch-icon" href="assets/logo-white.png">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .contact-hero {
+      min-height: 35vh;
+      margin-top: var(--header-height);
+      background-image: linear-gradient(160deg, rgba(15, 15, 16, 0.92) 0%, rgba(230, 95, 43, 0.3) 100%), url('assets/admissions_banner.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      color: var(--text-light);
+    }
+
+    .contact-main-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-lg);
+    }
+
+    @media (max-width: 992px) {
+      .contact-main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===================== STICKY HEADER ===================== -->
+  <header class="main-header">
+    <div class="container header-container">
+      <!-- Logo -->
+      <a href="index.html" class="logo-link" id="logo">
+        <img src="assets/CIS-logo.png" alt="CIS Logo" class="navbar-logo">
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item active"><a href="index.html" class="nav-link" id="nav-home"
+              data-i18n="nav_home">الرئيسية</a></li>
+
+          <li class="nav-item has-dropdown">
+            <a href="about.html" class="nav-link" id="nav-about" data-i18n="nav_about">عن المعهد</a>
+            <ul class="dropdown-menu">
+              <li><a href="about.html" class="dropdown-item" data-i18n="nav_about_vision">رؤية ورسالة المعهد</a></li>
+              <li><a href="about.html#dean" class="dropdown-item" data-i18n="nav_about_dean">كلمة عميد المعهد</a></li>
+              <li><a href="about.html#achievements" class="dropdown-item" data-i18n="nav_about_achievements">الاعتمادات
+                  والإنجازات</a></li>
+              <li><a href="about.html#timeline" class="dropdown-item" data-i18n="nav_about_timeline">تاريخ المعهد</a>
+              </li>
+              <li><a href="quality.html" class="dropdown-item" style="border-top:1px solid rgba(15,15,16,0.06);"
+                  data-i18n="nav_about_qa">وحدة ضمان الجودة (QA)</a></li>
+              <li><a href="research.html" class="dropdown-item" data-i18n="nav_about_research">البحث العلمي
+                  والابتكار</a></li>
+              <li><a href="faq.html" class="dropdown-item" data-i18n="nav_about_faq">الأسئلة الشائعة (FAQ)</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-dropdown">
+            <a href="admissions.html" class="nav-link" id="nav-admissions" data-i18n="nav_admissions">القبول
+              والتسجيل</a>
+            <ul class="dropdown-menu">
+              <li><a href="admissions.html" class="dropdown-item" data-i18n="nav_admissions_requirements">شروط الالتحاق
+                  والقبول</a></li>
+              <li><a href="admissions.html#fees-section" class="dropdown-item" data-i18n="nav_admissions_fees">الرسوم
+                  والمصروفات الدراسية</a></li>
+              <li><a href="admissions.html#docs-section" class="dropdown-item" data-i18n="nav_admissions_docs">المستندات
+                  المطلوبة</a></li>
+              <li><a href="admissions.html#apply-section" class="dropdown-item" data-i18n="nav_admissions_apply">التقديم
+                  الإلكتروني المباشر</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" id="nav-depts" data-i18n="nav_depts">الأقسام الأكاديمية</a>
+            <ul class="dropdown-menu">
+              <li><a href="dept-cs.html" class="dropdown-item" data-i18n="nav_dept_cs">علوم الحاسب (CS)</a></li>
+              <li><a href="dept-bis.html" class="dropdown-item" data-i18n="nav_dept_bis">نظم المعلومات الإدارية
+                  (BIS)</a></li>
+              <li><a href="dept-admin.html" class="dropdown-item" data-i18n="nav_dept_admin">إدارة الأعمال والمحاسبة</a>
+              </li>
+              <li><a href="dept-basic.html" class="dropdown-item" data-i18n="nav_dept_basic">العلوم الأساسية</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-dropdown">
+            <a href="services.html" class="nav-link" id="nav-services" data-i18n="nav_services">خدمات الطلاب</a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html#results" class="dropdown-item" data-i18n="nav_services_results">نتائج الطلاب
+                  والدرجات</a></li>
+              <li><a href="services.html#registration" class="dropdown-item" data-i18n="nav_services_registration">حالة
+                  التسجيل الأكاديمي</a></li>
+              <li><a href="services.html#calendar" class="dropdown-item" data-i18n="nav_services_calendar">التقويم
+                  الأكاديمي</a></li>
+              <li><a href="services.html#library" class="dropdown-item" data-i18n="nav_services_library">المكتبة
+                  الرقمية</a></li>
+              <li><a href="services.html#lms" class="dropdown-item" data-i18n="nav_services_lms">منصة التعلم (LMS)</a>
+              </li>
+              <li><a href="services.html#complaints" class="dropdown-item" data-i18n="nav_services_complaints">الشكاوى
+                  والاستفسارات</a></li>
+              <li><a href="services.html#certificates" class="dropdown-item" data-i18n="nav_services_certificates">طلب
+                  شهادات رسمية</a></li>
+              <li><a href="services.html#internships" class="dropdown-item" data-i18n="nav_services_internships">التدريب
+                  والتوظيف</a></li>
+              <li><a href="it-unit.html" class="dropdown-item" style="border-top:1px solid rgba(15,15,16,0.06);"
+                  data-i18n="nav_services_it">وحدة تكنولوجيا المعلومات (IT)</a></li>
+              <li><a href="alumni.html" class="dropdown-item" style="border-top:1px solid rgba(15,15,16,0.06);"
+                  data-i18n="nav_services_alumni">بوابة الخريجين</a></li>
+              <li><a href="career.html" class="dropdown-item" data-i18n="nav_services_career">مركز التطوير المهني</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a href="faculty.html" class="nav-link" id="nav-faculty" data-i18n="nav_faculty">أعضاء
+              التدريس</a></li>
+
+          <li class="nav-item has-dropdown">
+            <a href="media.html" class="nav-link" id="nav-media" data-i18n="nav_media">الوسائط المتعددة</a>
+            <ul class="dropdown-menu">
+              <li><a href="media.html#photos" class="dropdown-item" data-i18n="nav_media_photos">معرض الصور</a></li>
+              <li><a href="media.html#videos" class="dropdown-item" data-i18n="nav_media_videos">الفيديوهات المثبتة</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a href="contact.html" class="nav-link" id="nav-contact" data-i18n="nav_contact">اتصل
+              بنا</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <button id="lang-btn" class="btn" aria-label="Toggle Language">
+          <span>English</span>
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.345 2.513-1.638 5.178-3.41 7.5" />
+          </svg>
+        </button>
+        <a href="admissions.html#apply-section" class="btn btn-primary" style="padding: 10px 12px;" id="btn-apply"
+          data-i18n="btn_apply">قدم
+          الآن</a>
+        <button class="mobile-menu-toggle btn" id="mobile-menu-toggle" aria-label="Open Mobile Menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="nav-drawer" id="nav-drawer">
+    <div class="drawer-header">
+      <div class="logo-text">المعهد العالي <span>CIS</span></div>
+      <button class="drawer-close" id="drawer-close" aria-label="Close Menu">&times;</button>
+    </div>
+    <ul class="drawer-menu">
+      <li><a href="index.html" id="mob-home">Home</a></li>
+      <li><a href="about.html" id="mob-about">About</a></li>
+      <li><a href="admissions.html" id="mob-admissions">Admissions</a></li>
+      <li><a href="faculty.html" id="mob-faculty">Faculty</a></li>
+      <li><a href="services.html" id="mob-services">خدمات الطلاب</a></li>
+      <li><a href="media.html" id="mob-media">Media</a></li>
+      <li><a href="contact.html" id="mob-contact">Contact</a></li>
+      <li><a href="quality.html" id="mob-quality">Quality</a></li>
+      <li><a href="it-unit.html" id="mob-it">IT Unit</a></li>
+      <li><a href="research.html" id="mob-res">البحث العلمي</a></li>
+      <li><a href="alumni.html" id="mob-alumni">الخريجين</a></li>
+      <li><a href="career.html" id="mob-career">التطوير المهني</a></li>
+      <li><a href="faq.html" id="mob-faq">FAQ</a></li>
+    </ul>
+  </div>
+
+
+  <!-- ===================== HERO BANNER ===================== -->
+  <section class="contact-hero" id="contact-page-hero">
+    <div class="container">
+      <span class="hero-subtitle" data-i18n="contact_span_15">تواصل معنا على مدار الساعة</span>
+      <h1 class="hero-title" style="font-size: var(--font-size-xxl);">
+        <span data-i18n="contact_hero_pre">اتصل بنا وطرق</span> <span data-i18n="contact_span_16">الوصول للمعهد</span>
+      </h1>
+      <p style="color: rgba(255,255,255,0.75); font-size: var(--font-size-md); max-width:600px; margin-top: var(--space-xs);"
+        data-i18n="contact_p_17">قنوات الاتصال المباشرة لجميع الإدارات والأقسام الأكاديمية، أرقام الطوارئ الداخلية،
+        خرائط الوصول الدقيقة، والتقديم الفوري.</p>
+
+      <!-- Breadcrumb -->
+      <div
+        style="display:flex; gap:8px; align-items:center; margin-top:var(--space-md); font-size:var(--font-size-xs); color:rgba(255,255,255,0.6);">
+        <a href="index.html" style="color:rgba(255,255,255,0.6);" data-i18n="contact_a_2">الرئيسية</a>
+        <span>/</span>
+        <span style="color:var(--color-primary); font-weight:700;" data-i18n="contact_a_8">اتصل بنا</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== CONTACT HUB CONTENT ===================== -->
+  <section class="section-padding" style="background: var(--color-bg-neutral);">
+    <div class="container">
+      <div class="contact-main-grid">
+
+        <!-- Column 1: Map and Form -->
+        <main style="display:flex; flex-direction:column; gap:var(--space-md);">
+
+          <!-- Real Google Maps Embed -->
+          <div class="card" style="padding:0; border:none; overflow:hidden;">
+            <div
+              style="padding:var(--space-sm); border-bottom:1px solid rgba(15,15,16,0.06); display:flex; justify-content:space-between; align-items:center;">
+              <h3
+                style="font-family:var(--font-headings); font-size:var(--font-size-base); font-weight:800; color:var(--text-dark); margin-bottom:0;"
+                data-i18n="contact_h3_18">📍 موقع المعهد على الخريطة التفاعلية</h3>
+              <a href="https://maps.app.goo.gl/z3WJfSGnq1EZ78146" target="_blank" rel="noopener"
+                style="font-size:var(--font-size-xs); color:var(--color-primary); font-weight:700; text-decoration:none; display:flex; align-items:center; gap:4px;">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+                <span data-i18n="contact_open_maps">فتح الخريطة التفاعلية</span>
+              </a>
+            </div>
+
+            <!-- Google Maps iframe -->
+            <div style="width:100%; height:380px; overflow:hidden;">
+              <iframe id="google-map-embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.981317593916!2d31.43172107612566!3d29.994333374996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583cb080ef5685%3A0x01a58ed16c4fac2b!2z2KfZg9in2K_ZitmF2YrYqSDYp9mE2YLYp9mH2LHYqSDYp9mE2KzYr9mK2K_YqeKArQ!5e0!3m2!1sar!2seg!4v1689500000000!5m2!1sar!2seg"
+                width="100%" height="380" style="border:0; display:block;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="موقع المعهد العالي لعلوم الحاسب ونظم المعلومات الإدارية">
+              </iframe>
+            </div>
+          </div>
+
+          <!-- Departments Phone Directory -->
+          <div class="card" style="padding:var(--space-lg);">
+            <h3
+              style="font-family:var(--font-headings); font-size:var(--font-size-md); font-weight:800; margin-bottom:6px; color:var(--text-dark);"
+              data-i18n="contact_h3_36">🏛️ أرقام هواتف الإدارات الرسمية</h3>
+            <p style="font-size:var(--font-size-sm); color:var(--text-muted); margin-bottom:var(--space-md);"
+              data-i18n="contact_depts_intro">تواصل مباشرة مع الإدارة المختصة هاتفياً أو عبر البريد الإلكتروني خلال
+              ساعات العمل الرسمية.</p>
+            <div id="contact-depts-grid"
+              style="display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:var(--space-sm);">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+        </main>
+
+        <!-- Column 2: Side Contacts -->
+        <aside style="display:flex; flex-direction:column; gap:var(--space-md);">
+
+          <!-- Quick Channels Cards -->
+          <div class="card"
+            style="background: linear-gradient(135deg, #10b981, #059669); border:none; color:white; padding:var(--space-md);">
+            <h3
+              style="font-family:var(--font-headings); font-size:var(--font-size-md); font-weight:800; color:white; margin-bottom:6px;"
+              data-i18n="contact_h3_27">💬 محادثة فورية عبر WhatsApp</h3>
+            <p style="font-size:var(--font-size-xs); color:rgba(255,255,255,0.9); line-height:1.5; margin-bottom:12px;"
+              data-i18n="contact_p_28">يسعدنا الرد على استفسارات الطلاب الجدد شروط القبول والتنسيق عبر الخط المباشر
+              للواتساب فوراً.</p>
+            <a href="https://wa.me/201553849065" target="_blank" class="btn btn-primary"
+              style="background:white; color:#059669; justify-content:center; gap:8px; font-weight:700;">
+              <span data-i18n="contact_span_29">تواصل معنا الآن</span>
+              <span>📱</span>
+            </a>
+          </div>
+
+          <!-- Working Hours Card -->
+          <div class="card" style="padding:var(--space-md);">
+            <h3
+              style="font-family:var(--font-headings); font-size:var(--font-size-md); font-weight:800; border-bottom:2px solid var(--color-primary-light); padding-bottom:8px; margin-bottom:var(--space-sm);"
+              data-i18n="contact_h3_30">⏰ ساعات العمل الرسمية</h3>
+            <div style="font-size:var(--font-size-sm); color:var(--text-muted); line-height:1.6;">
+              <p data-i18n="contact_p_31">نستقبل الزيارات ومراجعات شؤون الطلاب في المعهد بمقر الإدارة الرئيسي:</p>
+              <div
+                style="display:flex; justify-content:space-between; margin-top:8px; font-weight:700; color:var(--text-dark);">
+                <span data-i18n="contact_span_32">من السبت إلى الأربعاء:</span>
+                <span data-i18n="contact_span_33">من 9:00 ص إلى 4:00 م</span>
+              </div>
+              <div
+                style="display:flex; justify-content:space-between; margin-top:4px; font-weight:700; color:var(--color-primary);">
+                <span data-i18n="contact_span_34">يوم الخميس والجمعة:</span>
+                <span data-i18n="contact_span_35">عطلة أسبوعية مغلق</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Emergency Numbers -->
+          <div class="card" style="padding:var(--space-md);">
+            <h3
+              style="font-family:var(--font-headings); font-size:var(--font-size-md); font-weight:800; color:var(--text-dark); margin-bottom:var(--space-sm); border-bottom:2px solid rgba(239,68,68,0.15); padding-bottom:8px;"
+              data-i18n="contact_h3_37">🚨 خطوط الطوارئ والسلامة</h3>
+            <table class="custom-table" style="margin:0; box-shadow:none; border-color:rgba(239,68,68,0.1);">
+              <tbody id="contact-emergencies-table">
+                <!-- Rendered via JS -->
+              </tbody>
+            </table>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <!-- 12. FOOTER -->
+  <!-- 12. FOOTER -->
+  <!-- 12. FOOTER -->
+  <!-- 12. FOOTER -->
+  <!-- 12. FOOTER -->
+  <!-- 12. FOOTER -->
+  <footer class="main-footer">
+    <div class="container footer-grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-lg);">
+      <!-- About Col -->
+      <div class="footer-col">
+        <img src="assets/logo-white.png" alt="CIS Logo" class="footer-logo-img">
+        <p style="color:var(--text-light-muted); font-size:var(--font-size-sm); line-height:1.6; margin-bottom:var(--space-md);"
+          data-i18n="footer_about_text">مؤسسة أكاديمية رائدة تأسست عام ٢٠٠١، تلتزم بتقديم تجربة تعليمية من الطراز الأول
+          للمساهمة في ريادة أعمال المستقبل الرقمي في مصر والشرق الأوسط.</p>
+        <div style="display:flex; gap:10px;">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/CIS.EDU1/" target="_blank"
+            style="background:#1877F2; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:16px;"
+            aria-label="Facebook">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h2V1h-3C10 1 9 2.5 9 5.5V8z" />
+            </svg>
+          </a>
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/channel/UCoRUJ2St0Bx7WjKdbTqOvkQ" target="_blank"
+            style="background:#FF0000; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:16px;"
+            aria-label="YouTube">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M23.5 6.2c-.3-1.1-1.2-2-2.3-2.3C19.2 3.5 12 3.5 12 3.5s-7.2 0-9.2.4C1.7 4.2.8 5.1.5 6.2.1 8.2.1 12 .1 12s0 3.8.4 5.8c.3 1.1 1.2 2 2.3 2.3 2 2.4 9.2 2.4 9.2 2.4s7.2 0 9.2-.4c1.1-.3 2-1.2 2.3-2.3.4-2 .4-5.8.4-5.8s0-3.8-.4-5.8zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z" />
+            </svg>
+          </a>
+          <!-- Whatsapp -->
+          <a href="https://wa.me/201553849065" target="_blank"
+            style="background:#25D366; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:16px;"
+            aria-label="Whatsapp">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12.012 2C6.48 2 2 6.48 2 12.012c0 1.764.462 3.48 1.344 5.004L2 22l5.124-1.344c1.476.804 3.132 1.224 4.884 1.224 5.532 0 10.012-4.48 10.012-10.012C22.02 6.48 17.544 2 12.012 2zm6.276 14.316c-.252.708-1.464 1.392-2.028 1.488-.504.084-1.164.156-3.324-.732-2.76-1.14-4.524-3.96-4.656-4.14-.132-.18-.984-1.308-.984-2.496 0-1.188.624-1.776.84-2.016.216-.24.48-.3.636-.3.156 0 .312 0 .444.012.144.012.336-.06.528.408.204.492.696 1.704.756 1.824.06.12.096.264.012.432-.084.168-.18.276-.3.42-.12.144-.252.324-.36.444-.12.132-.24.276-.108.504.132.228.588.972 1.26 1.572.864.768 1.596 1.008 1.824 1.116.228.108.36.096.492-.048.132-.144.564-.66.72-.888.156-.228.312-.192.528-.108.216.084 1.368.648 1.608.768.24.12.396.18.456.288.06.096.06.564-.192 1.272z" />
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/new_cairo_academy_1" target="_blank"
+            style="background:#E1306C; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:16px;"
+            aria-label="Instagram">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact & Map Column -->
+      <div class="footer-col">
+        <h4 data-i18n="footer_contact_title">تواصل معنا</h4>
+        <div
+          style="border-radius:var(--radius-sm); overflow:hidden; height:110px; margin-bottom:var(--space-xs); border: 1px solid rgba(255,255,255,0.1);">
+          <div
+            style="width:100%; height:100%; background: radial-gradient(circle at 40% 50%, #fef3c7 20%, #dbeafe 100%); position:relative;">
+            <!-- Roads and marker -->
+            <div
+              style="position:absolute; width:150%; height:10px; background:#ffffff; top:45%; left:-25%; transform:rotate(-15deg);">
+            </div>
+            <div
+              style="position:absolute; width:150%; height:8px; background:#ffffff; top:35%; left:-25%; transform:rotate(40deg);">
+            </div>
+            <div
+              style="position:absolute; top:40%; left:38%; width:12px; height:12px; border-radius:50% 50% 50% 0; background:var(--color-primary); transform: rotate(-45deg); border:1px solid white;">
+            </div>
+            <a href="https://maps.app.goo.gl/z3WJfSGnq1EZ78146" target="_blank" rel="noopener"
+              data-i18n="footer_map_link"
+              style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(15,15,16,0.4); color:white; font-family:var(--font-headings); font-weight:800; font-size:var(--font-size-xs); text-decoration:none; transition:background 0.2s;"
+              onmouseover="this.style.background='rgba(15,15,16,0.6)'"
+              onmouseout="this.style.background='rgba(15,15,16,0.4)'">فتح الخريطة التفاعلية 🔗</a>
+          </div>
+        </div>
+        <div
+          style="font-size:var(--font-size-xs); color:var(--text-light-muted); display:flex; flex-direction:column; gap:6px;">
+          <span><span data-i18n="footer_email_label">✉️ البريد الإلكتروني:</span> <a href="mailto:info@cis.edu.eg"
+              style="color:var(--color-primary); font-weight:700; text-decoration:none;">info@cis.edu.eg</a></span>
+          <span><span data-i18n="footer_address_label">📍 العنوان:</span> <span data-i18n="footer_address_text">التجمع
+              الخامس - امتداد مرتفعات الجولف - بعد جهاز المدينة</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom" style="justify-content:center; text-align:center;">
+      <span data-i18n="footer_copyright">حقوق النشر © ٢٠٢٦ المعهد العالي لعلوم الحاسب ونظم المعلومات الإدارية (CIS).
+        جميع الحقوق محفوظة.</span>
+    </div>
+  </footer>
+
+  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="العودة للأعلى">
+    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </button>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <!-- ===================== GLOBAL SEARCH MODAL ===================== -->
+  <div class="search-modal-backdrop" id="site-search-modal-backdrop">
+    <div class="search-modal-container">
+      <div class="search-modal-header">
+        <span style="font-size:1.2rem;">🔍</span>
+        <input type="text" class="search-modal-input"
+          placeholder="Search anything inside the Higher Institute (departments, services, news)...">
+        <button class="search-modal-close-btn">&times;</button>
+      </div>
+      <div class="search-modal-body">
+        <!-- Recent searches -->
+        <h5 style="font-size:11px; color:var(--text-muted); font-weight:800; margin-bottom:4px;">🔍 عمليات البحث الأخيرة
+        </h5>
+        <div class="search-chip-group" id="search-recent-box">
+          <!-- Chips -->
+        </div>
+
+        <!-- Popular links -->
+        <h5 style="font-size:11px; color:var(--text-muted); font-weight:800; margin-bottom:4px; margin-top:12px;">🌟
+          روابط شائعة ومباشرة</h5>
+        <div class="search-chip-group" style="margin-bottom:16px;">
+          <span class="search-history-chip" onclick="triggerPresetSearch('results')">Student Results & Grades 🎓</span>
+          <span class="search-history-chip" onclick="triggerPresetSearch('cs')">Computer Science Division 🖥️</span>
+          <span class="search-history-chip" onclick="triggerPresetSearch('admissions')">Admissions & Registration
+            📋</span>
+          <span class="search-history-chip" onclick="triggerPresetSearch('it')">IT Technical Support Unit 🛠️</span>
+        </div>
+
+        <!-- Results output -->
+        <h5
+          style="font-size:11px; color:var(--text-muted); font-weight:800; margin-bottom:8px; border-top:1px solid rgba(15,15,16,0.06); padding-top:12px;">
+          🎯 نتائج البحث المطابقة</h5>
+        <div id="search-suggestions-box" style="display:flex; flex-direction:column; gap:4px;">
+          <!-- Hit rows -->
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+</body>
+
+</html>
