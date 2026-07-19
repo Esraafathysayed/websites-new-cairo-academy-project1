@@ -11,7 +11,7 @@ const CIS_DATA_AR = {
       body: "أعلنت إدارة شؤون الطلاب بالمعهد عن فتح باب التسجيل الأكاديمي للفصل الدراسي الأول للعام الأكاديمي الجديد. يُرجى من جميع الطلاب التوجه للبوابة الإلكترونية وتحديد المواد المسجلة بالتنسيق مع المرشد الأكاديمي لكل شعبة. يبدأ التسجيل الفعلي اعتباراً من اليوم ويستمر حتى منتصف الشهر المقبل.",
       date: "12 يوليو 2026",
       category: "أكاديمي",
-      image: "assets/campus_life.png",
+      image: "assets/campus_life.webp",
       views: 1240,
       readTime: "3 دقائق",
       featured: true,
@@ -24,7 +24,7 @@ const CIS_DATA_AR = {
       body: "افتتح عميد المعهد رسمياً اليوم مركز التميز لأبحاث الذكاء الاصطناعي وإنترنت الأشياء (IoT). يهدف المركز الجديد لتوفير بيئة بحثية متكاملة مجهزة بأحدث المعالجات الرسومية والخوادم السحابية لدعم بحوث تخرج الطلاب والمشروعات الابتكارية لأعضاء هيئة التدريس بالتعاون مع كبرى الشركات التكنولوجية.",
       date: "8 يوليو 2026",
       category: "أبحاث",
-      image: "assets/hero_bg.png",
+      image: "assets/hero_bg.webp",
       views: 950,
       readTime: "4 دقائق",
       featured: false,
@@ -37,7 +37,7 @@ const CIS_DATA_AR = {
       body: "في إنجاز جديد يضاف لسلسلة نجاحات المعهد الأكاديمية، نجح فريق مبرمجي شعبة علوم الحاسب في حصد المركز الأول والميدالية الذهبية في الهاكاثون السنوي للجامعات المصرية. قدم الفريق تطبيقاً ذكياً لتنظيم وإدارة الإشارات المرورية بالاعتماد على خوارزميات التعلم العميق والرؤية الحاسوبية.",
       date: "5 يوليو 2026",
       category: "إنجازات",
-      image: "assets/cs_lab.png",
+      image: "assets/cs_lab.webp",
       views: 1820,
       readTime: "5 دقائق",
       featured: false,
@@ -50,7 +50,7 @@ const CIS_DATA_AR = {
       body: "أطلقت إدارة رعاية الشباب بالمعهد جدول الأنشطة الرياضية والثقافية للفصل الدراسي الحالي، بما في ذلك الدوري السنوي الخماسي لكرة القدم. وندعو الطلاب المهتمين بالانضمام للفرق الرياضية أو اللجان الثقافية لتسجيل أسمائهم بمقر رعاية الشباب في المبنى الإداري.",
       date: "1 يوليو 2026",
       category: "أنشطة",
-      image: "assets/campus_life.png",
+      image: "assets/campus_life.webp",
       views: 640,
       readTime: "2 دقيقة",
       featured: false,
@@ -63,7 +63,7 @@ const CIS_DATA_AR = {
       body: "وقعت إدارة المعهد رسمياً اتفاقية تعاون أكاديمي وتدريبي جديدة مع شركة مايكروسوفت العالمية. تتيح هذه الاتفاقية لجميع طلاب المعهد الوصول المجاني لمنصة التعلم Microsoft Learn، بالإضافة إلى قسائم مجانية لاجتياز اختبارات الشهادات المهنية الدولية المعتمدة في مجالات السحابة والذكاء الاصطناعي.",
       date: "25 يونيو 2026",
       category: "أكاديمي",
-      image: "assets/admissions_banner.png",
+      image: "assets/admissions_banner.webp",
       views: 2150,
       readTime: "3 دقائق",
       featured: false,
@@ -76,7 +76,7 @@ const CIS_DATA_AR = {
       body: "في إطار دور المعهد في المسؤولية المجتمعية وتنمية البيئة المحيطة، نظمت أسرة البرمجة بالمعهد بالتعاون مع قسم علوم الحاسب قافلة تكنولوجية تطوعية لمدارس الأطفال المجاورة. قام الطلاب بتدريب الأطفال على أساسيات التفكير المنطقي ولغة سكراتش وتجربة الروبوتات الذكية البسيطة.",
       date: "18 يونيو 2026",
       category: "أنشطة",
-      image: "assets/cs_lab.png",
+      image: "assets/cs_lab.webp",
       views: 710,
       readTime: "4 دقائق",
       featured: false,
@@ -96,7 +96,7 @@ const CIS_DATA_AR = {
       tag: "طلبة جدد",
       type: "upcoming",
       desc: "ندعو جميع الطلاب المقبولين حديثاً لحضور اللقاء الترحيبي والتعرف على مرشديهم الأكاديميين وشرح لوائح الساعات المعتمدة وكيفية اختيار المقررات، ويتبع اللقاء جولة تعريفية بالحرم الرئيسي ومختبرات الحاسب.",
-      image: "assets/campus_life.png"
+      image: "assets/campus_life.webp"
     },
     {
       id: 2,
@@ -109,7 +109,7 @@ const CIS_DATA_AR = {
       tag: "خريجين",
       type: "upcoming",
       desc: "يجمع الملتقى التوظيفي هذا العام أكثر من ٢٥ شركة رائدة في مجالات تكنولوجيا المعلومات والمحاسبة ونظم الإدارة. فرصة ممتازة للطلاب الخريجين للحصول على مقابلات فورية وفرص تدريب عملية مميزة.",
-      image: "assets/hero_bg.png"
+      image: "assets/hero_bg.webp"
     },
     {
       id: 3,
@@ -122,7 +122,7 @@ const CIS_DATA_AR = {
       tag: "ورش عمل",
       type: "upcoming",
       desc: "ورشة عمل تطبيقية مكثفة بالتعاون مع خبراء الحوسبة السحابية بشركة AWS لاستعراض كيفية بناء وإطلاق البنى التحتية والتطبيقات الحديثة بدون خوادم Serverless.",
-      image: "assets/cs_lab.png"
+      image: "assets/cs_lab.webp"
     },
     {
       id: 4,
@@ -135,11 +135,11 @@ const CIS_DATA_AR = {
       tag: "مؤتمرات",
       type: "past",
       desc: "شهد المؤتمر هذا العام عرض أكثر من ٣٠ ورقة بحثية مبتكرة من إعداد الباحثين وأعضاء هيئة التدريس بالمعهد وبمشاركة جامعات عربية ودولية متعددة.",
-      image: "assets/cs_lab.png",
+      image: "assets/cs_lab.webp",
       gallery: [
-        "assets/cs_lab.png",
-        "assets/campus_life.png",
-        "assets/hero_bg.png"
+        "assets/cs_lab.webp",
+        "assets/campus_life.webp",
+        "assets/hero_bg.webp"
       ]
     },
     {
@@ -153,11 +153,11 @@ const CIS_DATA_AR = {
       tag: "معارض",
       type: "past",
       desc: "معرض تفاعلي سنوي لعرض ابتكارات الخريجين ومشروعات نظم المعلومات وعلوم الحاسب التطبيقية أمام لجان تقييم وممثلين عن شركات التكنولوجيا والصناعة.",
-      image: "assets/admissions_banner.png",
+      image: "assets/admissions_banner.webp",
       gallery: [
-        "assets/admissions_banner.png",
-        "assets/cs_lab.png",
-        "assets/campus_life.png"
+        "assets/admissions_banner.webp",
+        "assets/cs_lab.webp",
+        "assets/campus_life.webp"
       ]
     },
     {
@@ -171,11 +171,11 @@ const CIS_DATA_AR = {
       tag: "مسابقات",
       type: "past",
       desc: "المرحلة الأولى المؤهلة للمسابقة البرمجية الوطنية للجامعات، وتنافس فيها ٢٠ فريقاً من طلاب المعهد لحل المسائل الخوارزمية المعقدة في ٥ ساعات متواصلة.",
-      image: "assets/campus_life.png",
+      image: "assets/campus_life.webp",
       gallery: [
-        "assets/campus_life.png",
-        "assets/hero_bg.png",
-        "assets/cs_lab.png"
+        "assets/campus_life.webp",
+        "assets/hero_bg.webp",
+        "assets/cs_lab.webp"
       ]
     }
   ],
@@ -1039,15 +1039,15 @@ const CIS_DATA_AR = {
   // Phase 5: Media Center Data
   media: {
     photos: [
-      { id: 1, title: "حفل تخرج دفعة ٢٠٢٥", desc: "لقطات مميزة من تكريم أوائل الخريجين بقاعة المؤتمرات الكبرى بحضور العميد.", image: "assets/campus_life.png" },
-      { id: 2, title: "مختبر الحاسب والشبكات المطور", desc: "تحديث وتطوير البنية التحتية لمعمل شعبة علوم الحاسب بأحدث الأنظمة.", image: "assets/cs_lab.png" },
-      { id: 3, title: "فعاليات يوم الإرشاد الأكاديمي", desc: "ترحيب المعهد بالطلاب المستجدين وشرح لوائح الساعات المعتمدة.", image: "assets/campus_life.png" },
-      { id: 4, title: "معرض الابتكارات الطلابية", desc: "عرض مشروعات التخرج المتميزة أمام ممثلي الشركات والخبراء.", image: "assets/admissions_banner.png" }
+      { id: 1, title: "حفل تخرج دفعة ٢٠٢٥", desc: "لقطات مميزة من تكريم أوائل الخريجين بقاعة المؤتمرات الكبرى بحضور العميد.", image: "assets/campus_life.webp" },
+      { id: 2, title: "مختبر الحاسب والشبكات المطور", desc: "تحديث وتطوير البنية التحتية لمعمل شعبة علوم الحاسب بأحدث الأنظمة.", image: "assets/cs_lab.webp" },
+      { id: 3, title: "فعاليات يوم الإرشاد الأكاديمي", desc: "ترحيب المعهد بالطلاب المستجدين وشرح لوائح الساعات المعتمدة.", image: "assets/campus_life.webp" },
+      { id: 4, title: "معرض الابتكارات الطلابية", desc: "عرض مشروعات التخرج المتميزة أمام ممثلي الشركات والخبراء.", image: "assets/admissions_banner.webp" }
     ],
     videos: [
-      { id: 1, title: "فيديوهات توضيحية لمنصة التعليم الالكترونى", desc: "نبذة شاملة عن المعهد، الأقسام الأكاديمية، والفرص المهنية للطلاب.", url: "https://www.youtube.com/embed/yyV_GXZFG5A", thumbnail: "assets/hero_bg.png" },
-      { id: 2, title: "كيفية الدخول لمنصة التعليم الالكترونى", desc: "استكشف القاعات الدراسية، المعامل المتقدمة، والمساحات الخضراء بالمعهد.", url: "https://www.youtube.com/embed/b0ecSiFrDR0", thumbnail: "assets/campus_life.png" },
-      { id: 3, title: "المعهد العالي لعلوم الحاسب ونظم المعلومات الإدارية", desc: "نبذة عامة وتوجيهية عن الدراسة والأنشطة الطلابية بالمعهد.", url: "https://www.youtube.com/embed/-yk-mPeh-ak", thumbnail: "assets/cs_lab.png" }
+      { id: 1, title: "فيديوهات توضيحية لمنصة التعليم الالكترونى", desc: "نبذة شاملة عن المعهد، الأقسام الأكاديمية، والفرص المهنية للطلاب.", url: "https://www.youtube.com/embed/yyV_GXZFG5A", thumbnail: "assets/hero_bg.webp" },
+      { id: 2, title: "كيفية الدخول لمنصة التعليم الالكترونى", desc: "استكشف القاعات الدراسية، المعامل المتقدمة، والمساحات الخضراء بالمعهد.", url: "https://www.youtube.com/embed/b0ecSiFrDR0", thumbnail: "assets/campus_life.webp" },
+      { id: 3, title: "المعهد العالي لعلوم الحاسب ونظم المعلومات الإدارية", desc: "نبذة عامة وتوجيهية عن الدراسة والأنشطة الطلابية بالمعهد.", url: "https://www.youtube.com/embed/-yk-mPeh-ak", thumbnail: "assets/cs_lab.webp" }
     ],
     press: [
       { id: 1, title: "تصنيف المعهد ضمن أفضل المعاهد التقنية المعتمدة بمصر لعام ٢٠٢٦", date: "١ يوليو ٢٠٢٦", summary: "حقق المعهد مرتبة متقدمة في التقييم السنوي للمعاهد العليا الصادر عن وزارة التعليم العالي والبحث العلمي." },
@@ -1176,7 +1176,7 @@ const CIS_DATA_EN = {
       body: "The Institute's Student Affairs Department has announced the opening of academic registration for the fall semester of the new academic year. All students are asked to log in to the online portal and select their courses in coordination with the academic advisor of each division. Registration begins today and continues until the middle of next month.",
       date: "12 July 2026",
       category: "Academic",
-      image: "assets/campus_life.png",
+      image: "assets/campus_life.webp",
       views: 1240,
       readTime: "3 min",
       featured: true,
@@ -1189,7 +1189,7 @@ const CIS_DATA_EN = {
       body: "The Dean of the Institute officially inaugurated the Center of Excellence for Artificial Intelligence and Internet of Things (IoT) research today. The new center aims to provide an integrated research environment equipped with the latest GPUs and cloud servers to support student graduation research and innovative faculty projects in collaboration with major technology companies.",
       date: "8 July 2026",
       category: "Research",
-      image: "assets/hero_bg.png",
+      image: "assets/hero_bg.webp",
       views: 950,
       readTime: "4 min",
       featured: false,
@@ -1202,7 +1202,7 @@ const CIS_DATA_EN = {
       body: "In a new achievement added to the Institute's series of academic successes, the Computer Science division's programming team won first place and the gold medal at the annual Egyptian Universities Hackathon. The team presented a smart application for organizing and managing traffic signals based on deep learning algorithms and computer vision.",
       date: "5 July 2026",
       category: "Achievements",
-      image: "assets/cs_lab.png",
+      image: "assets/cs_lab.webp",
       views: 1820,
       readTime: "5 min",
       featured: false,
@@ -1215,7 +1215,7 @@ const CIS_DATA_EN = {
       body: "The Institute's Youth Welfare Department launched the schedule of sports and cultural activities for the current semester, including the annual five-a-side football league. We invite students interested in joining the sports teams or cultural committees to register their names at the Youth Welfare office in the administration building.",
       date: "1 July 2026",
       category: "Activities",
-      image: "assets/campus_life.png",
+      image: "assets/campus_life.webp",
       views: 640,
       readTime: "2 min",
       featured: false,
@@ -1228,7 +1228,7 @@ const CIS_DATA_EN = {
       body: "The Institute administration has officially signed a new academic and training cooperation agreement with Microsoft. This agreement gives all Institute students free access to the Microsoft Learn platform, in addition to free vouchers to sit for accredited international professional certification exams in the fields of cloud computing and artificial intelligence.",
       date: "25 June 2026",
       category: "Academic",
-      image: "assets/admissions_banner.png",
+      image: "assets/admissions_banner.webp",
       views: 2150,
       readTime: "3 min",
       featured: false,
@@ -1241,7 +1241,7 @@ const CIS_DATA_EN = {
       body: "As part of the Institute's role in social responsibility and developing the surrounding community, the Institute's Programming Club, in collaboration with the Computer Science Department, organized a voluntary tech caravan for nearby children's schools. Students trained the children in the basics of logical thinking, the Scratch language, and experimenting with simple smart robots.",
       date: "18 June 2026",
       category: "Activities",
-      image: "assets/cs_lab.png",
+      image: "assets/cs_lab.webp",
       views: 710,
       readTime: "4 min",
       featured: false,
@@ -1261,7 +1261,7 @@ const CIS_DATA_EN = {
       tag: "New Students",
       type: "upcoming",
       desc: "We invite all newly admitted students to attend the welcome session, meet their academic advisors, and learn about the credit-hour regulations and how to select courses. The session is followed by an introductory tour of the main campus and the computer labs.",
-      image: "assets/campus_life.png"
+      image: "assets/campus_life.webp"
     },
     {
       id: 2,
@@ -1274,7 +1274,7 @@ const CIS_DATA_EN = {
       tag: "Graduates",
       type: "upcoming",
       desc: "This year's career fair brings together more than 25 leading companies in the fields of information technology, accounting, and management systems. An excellent opportunity for graduating students to secure on-the-spot interviews and distinguished practical training opportunities.",
-      image: "assets/hero_bg.png"
+      image: "assets/hero_bg.webp"
     },
     {
       id: 3,
@@ -1287,7 +1287,7 @@ const CIS_DATA_EN = {
       tag: "Workshops",
       type: "upcoming",
       desc: "An intensive hands-on workshop in collaboration with AWS cloud computing experts to explore how to build and deploy modern serverless infrastructure and applications.",
-      image: "assets/cs_lab.png"
+      image: "assets/cs_lab.webp"
     },
     {
       id: 4,
@@ -1300,11 +1300,11 @@ const CIS_DATA_EN = {
       tag: "Conferences",
       type: "past",
       desc: "This year's conference featured the presentation of more than 30 innovative research papers prepared by the Institute's researchers and faculty, with the participation of numerous Arab and international universities.",
-      image: "assets/cs_lab.png",
+      image: "assets/cs_lab.webp",
       gallery: [
-        "assets/cs_lab.png",
-        "assets/campus_life.png",
-        "assets/hero_bg.png"
+        "assets/cs_lab.webp",
+        "assets/campus_life.webp",
+        "assets/hero_bg.webp"
       ]
     },
     {
@@ -1318,11 +1318,11 @@ const CIS_DATA_EN = {
       tag: "Exhibitions",
       type: "past",
       desc: "An annual interactive exhibition showcasing graduates' innovations and applied information systems and computer science projects before evaluation committees and representatives of technology and industry companies.",
-      image: "assets/admissions_banner.png",
+      image: "assets/admissions_banner.webp",
       gallery: [
-        "assets/admissions_banner.png",
-        "assets/cs_lab.png",
-        "assets/campus_life.png"
+        "assets/admissions_banner.webp",
+        "assets/cs_lab.webp",
+        "assets/campus_life.webp"
       ]
     },
     {
@@ -1336,11 +1336,11 @@ const CIS_DATA_EN = {
       tag: "Competitions",
       type: "past",
       desc: "The first qualifying stage for the national collegiate programming contest, in which 20 teams of Institute students competed to solve complex algorithmic problems over 5 continuous hours.",
-      image: "assets/campus_life.png",
+      image: "assets/campus_life.webp",
       gallery: [
-        "assets/campus_life.png",
-        "assets/hero_bg.png",
-        "assets/cs_lab.png"
+        "assets/campus_life.webp",
+        "assets/hero_bg.webp",
+        "assets/cs_lab.webp"
       ]
     }
   ],
@@ -2204,14 +2204,14 @@ const CIS_DATA_EN = {
   // Phase 5: Media Center Data
   media: {
     photos: [
-      { id: 1, title: "Class of 2025 Graduation Ceremony", desc: "Highlights from honoring the top graduates in the Grand Conference Hall in the presence of the Dean.", image: "assets/campus_life.png" },
-      { id: 2, title: "Upgraded Computer and Networks Lab", desc: "Updating and developing the infrastructure of the Computer Science division's lab with the latest systems.", image: "assets/cs_lab.png" },
-      { id: 3, title: "Academic Advising Day Activities", desc: "The Institute welcomes new students and explains the credit-hour regulations.", image: "assets/campus_life.png" },
-      { id: 4, title: "Student Innovations Exhibition", desc: "Showcasing distinguished graduation projects before company representatives and experts.", image: "assets/admissions_banner.png" }
+      { id: 1, title: "Class of 2025 Graduation Ceremony", desc: "Highlights from honoring the top graduates in the Grand Conference Hall in the presence of the Dean.", image: "assets/campus_life.webp" },
+      { id: 2, title: "Upgraded Computer and Networks Lab", desc: "Updating and developing the infrastructure of the Computer Science division's lab with the latest systems.", image: "assets/cs_lab.webp" },
+      { id: 3, title: "Academic Advising Day Activities", desc: "The Institute welcomes new students and explains the credit-hour regulations.", image: "assets/campus_life.webp" },
+      { id: 4, title: "Student Innovations Exhibition", desc: "Showcasing distinguished graduation projects before company representatives and experts.", image: "assets/admissions_banner.webp" }
     ],
     videos: [
-      { id: 1, title: "The Official CIS Introductory Film", desc: "A comprehensive overview of the Institute, the academic departments, and career opportunities for students.", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", thumbnail: "assets/hero_bg.png" },
-      { id: 2, title: "Virtual Campus Tour Video", desc: "Explore the classrooms, advanced labs, and green spaces at the Institute.", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", thumbnail: "assets/campus_life.png" }
+      { id: 1, title: "The Official CIS Introductory Film", desc: "A comprehensive overview of the Institute, the academic departments, and career opportunities for students.", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", thumbnail: "assets/hero_bg.webp" },
+      { id: 2, title: "Virtual Campus Tour Video", desc: "Explore the classrooms, advanced labs, and green spaces at the Institute.", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", thumbnail: "assets/campus_life.webp" }
     ],
     press: [
       { id: 1, title: "Institute Ranked Among the Best Accredited Technical Institutes in Egypt for 2026", date: "1 July 2026", summary: "The Institute achieved an advanced position in the annual evaluation of higher institutes issued by the Ministry of Higher Education and Scientific Research." },
