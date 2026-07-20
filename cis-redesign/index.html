@@ -12,21 +12,6 @@
   <link rel="icon" type="image/png" href="assets/CIS-logo.webp">
   <link rel="apple-touch-icon" href="assets/CIS-logo.webp">
 
-  <!-- Preconnect to Google Fonts origin (eliminates DNS + TLS handshake latency) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Non-blocking Google Fonts: only load weights actually used (removed 300 & 900) -->
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap"
-    media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap">
-  </noscript>
-
   <!-- *** LCP RESOURCE PRELOAD ***
        The hero background (hero_bg.png) is the Largest Contentful Paint element.
        This preload hint tells the browser to fetch it at the highest priority
@@ -59,7 +44,7 @@
     }
 
     body {
-      font-family: 'Tajawal', system-ui, sans-serif;
+      font-family: var(--font-body);
       -webkit-font-smoothing: antialiased;
       line-height: 1.6;
       overflow-x: hidden;
@@ -130,7 +115,7 @@
     }
 
     .hero-title {
-      font-family: 'Cairo', system-ui, sans-serif;
+      font-family: var(--font-headings);
       font-size: 3.5rem;
       font-weight: 800;
       line-height: 1.15;
@@ -139,7 +124,7 @@
     }
 
     .hero-subtitle {
-      font-family: 'Cairo', system-ui, sans-serif;
+      font-family: var(--font-headings);
       font-size: 1.15rem;
       color: #E65F2B;
       font-weight: 700;
@@ -169,7 +154,7 @@
       justify-content: center;
       gap: 8px;
       padding: 16px 24px;
-      font-family: 'Cairo', system-ui, sans-serif;
+      font-family: var(--font-headings);
       font-weight: 600;
       font-size: 1rem;
       border-radius: 8px;

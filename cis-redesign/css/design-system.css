@@ -5,9 +5,58 @@
   RTL-first, WCAG AA compliant.
 */
 
-/* Google Fonts are loaded via non-blocking <link> tags in each page's <head>
-   to eliminate the render-blocking @import chain. See HTML files. */
+/* Local Fonts: Cairo */
+@font-face {
+  font-family: 'Cairo';
+  src: url('../fonts/Cairo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cairo';
+  src: url('../fonts/Cairo-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cairo';
+  src: url('../fonts/Cairo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cairo';
+  src: url('../fonts/Cairo-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
 
+/* Local Fonts: Tajawal */
+@font-face {
+  font-family: 'Tajawal';
+  src: url('../fonts/Tajawal-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tajawal';
+  src: url('../fonts/Tajawal-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tajawal';
+  src: url('../fonts/Tajawal-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
   /* Brand Colors */
   --color-primary: #E65F2B;
@@ -54,6 +103,7 @@
   --radius-full: 9999px;
 
   /* Typography */
+  --font-primary: 'Cairo', sans-serif;
   --font-headings: 'Cairo', sans-serif;
   --font-body: 'Tajawal', sans-serif;
 
