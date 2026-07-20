@@ -154,7 +154,8 @@ function initNavPill() {
   if (!navMenu) return;
 
   // Inject the pill element as the first child of the nav menu
-  const pill = document.createElement("span");
+  const pill = document.createElement("li");
+  pill.setAttribute("aria-hidden", "true");
   pill.className = "nav-pill";
   navMenu.insertBefore(pill, navMenu.firstChild);
 
