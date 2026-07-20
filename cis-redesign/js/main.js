@@ -115,19 +115,37 @@ function initMobileMenu() {
 
   function openDrawer() {
     navDrawer.classList.add("active");
-    overlay.classList.add("active");
+    if (overlay) overlay.classList.add("active");
     document.body.style.overflow = "hidden";
+    
+    // Add ESC key listener when opened
+    document.addEventListener("keydown", handleEscape);
   }
 
   function closeDrawer() {
     navDrawer.classList.remove("active");
-    overlay.classList.remove("active");
+    if (overlay) overlay.classList.remove("active");
     document.body.style.overflow = "";
+    
+    // Clean up ESC key listener
+    document.removeEventListener("keydown", handleEscape);
+  }
+  
+  function handleEscape(e) {
+    if (e.key === "Escape" || e.key === "Esc") {
+      closeDrawer();
+    }
   }
 
   menuToggle.addEventListener("click", openDrawer);
   if (drawerClose) drawerClose.addEventListener("click", closeDrawer);
   if (overlay) overlay.addEventListener("click", closeDrawer);
+  
+  // Close drawer when any menu link is clicked
+  const drawerLinks = navDrawer.querySelectorAll('a');
+  drawerLinks.forEach(link => {
+    link.addEventListener("click", closeDrawer);
+  });
 }
 
 /* ==========================================

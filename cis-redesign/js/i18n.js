@@ -205,8 +205,7 @@ const I18n = (() => {
    */
   function toggle() {
     const next = currentLang === 'ar' ? 'en' : 'ar';
-    localStorage.setItem(STORAGE_KEY, next);
-    window.location.reload();
+    setLanguage(next);
   }
 
   // Set up MutationObserver to automatically translate dynamically injected elements
