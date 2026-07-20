@@ -21,17 +21,9 @@
        from the document root. -->
   <link rel="preload" as="image" href="assets/hero_bg.webp" fetchpriority="high" type="image/webp">
 
-  <!-- Font Preloads (Only critical ones for LCP) -->
-  <link rel="preload" href="fonts/Cairo-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/Tajawal-Regular.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- Page stylesheets loaded asynchronously -->
-  <link rel="stylesheet" href="css/design-system.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="css/design-system.css">
-    <link rel="stylesheet" href="css/main.css">
-  </noscript>
+  <!-- Page stylesheets -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/main.css">
 
   <!-- Inline critical CSS: above-the-fold styles for instant first paint -->
   <style>
