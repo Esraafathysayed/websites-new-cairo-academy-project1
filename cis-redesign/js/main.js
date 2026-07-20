@@ -155,13 +155,20 @@ function initStickyHeader() {
   const header = document.querySelector(".main-header");
   if (!header) return;
 
+  let ticking = false;
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 40) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        if (window.scrollY > 40) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+        ticking = false;
+      });
+      ticking = true;
     }
-  });
+  }, { passive: true });
 }
 
 /* ==========================================
@@ -250,19 +257,22 @@ function initNavPill() {
   pill.style.transition = "";
   navMenu.classList.add("pill-ready");
 
+  // Cache DOM nodes for better performance and to prevent forced reflows
+  const allNavItems = navMenu.querySelectorAll(".nav-item");
+
   // On click: move pill and update active class
   navLinks.forEach(link => {
     link.addEventListener("click", function (e) {
       const clickedItem = this.closest(".nav-item");
       // Don't prevent navigation — just move the pill visually first
-      navMenu.querySelectorAll(".nav-item").forEach(i => i.classList.remove("active"));
+      allNavItems.forEach(i => i.classList.remove("active"));
       clickedItem.classList.add("active");
       movePillTo(clickedItem);
     });
   });
 
   // On hover: preview pill position while hovering
-  navMenu.querySelectorAll(".nav-item").forEach(item => {
+  allNavItems.forEach(item => {
     item.addEventListener("mouseenter", function () {
       movePillTo(this);
     });
@@ -279,10 +289,11 @@ function initNavPill() {
     resizeTimer = setTimeout(() => {
       pill.style.transition = "none";
       resetPill();
+      // Force layout recalculation for the transition reset
       pill.getBoundingClientRect();
       pill.style.transition = "";
     }, 150);
-  });
+  }, { passive: true });
 }
 
 /* ==========================================
@@ -298,16 +309,19 @@ function initButtonRipple() {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
-    const ripple = document.createElement("span");
-    ripple.className = "ripple";
-    ripple.style.left = `${x}px`;
-    ripple.style.top = `${y}px`;
-    
-    button.appendChild(ripple);
-    
-    setTimeout(() => {
-      ripple.remove();
-    }, 600);
+    // Batch DOM write in requestAnimationFrame to prevent forced synchronous layout
+    requestAnimationFrame(() => {
+      const ripple = document.createElement("span");
+      ripple.className = "ripple";
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      
+      button.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
   });
 }
 
