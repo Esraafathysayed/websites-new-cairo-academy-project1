@@ -19,8 +19,8 @@
   <!-- Load CSS asynchronously -->
   <link rel="preload" href="css/design-system.css" as="style">
   <link rel="preload" href="css/main.css" as="style">
-  <link rel="stylesheet" href="css/design-system.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+  <link rel="preload" as="style" href="css/design-system.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/main.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="css/design-system.css">
     <link rel="stylesheet" href="css/main.css">
@@ -60,12 +60,13 @@
   <style>
     .career-hero {
       min-height: 35vh;
-      margin-top: var(--header-height);
+      margin-top: 80px;
+      display: flex;
+      align-items: center;
+      position: relative;
       background-image: linear-gradient(160deg, rgba(15, 15, 16, 0.92) 0%, rgba(230, 95, 43, 0.3) 100%), url('assets/hero_bg.webp');
       background-size: cover;
       background-position: center 60%;
-      display: flex;
-      align-items: center;
       color: var(--text-light);
     }
 

@@ -21,8 +21,8 @@
   <!-- Load CSS asynchronously -->
   <link rel="preload" href="css/design-system.css" as="style">
   <link rel="preload" href="css/main.css" as="style">
-  <link rel="stylesheet" href="css/design-system.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+  <link rel="preload" as="style" href="css/design-system.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/main.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="css/design-system.css">
     <link rel="stylesheet" href="css/main.css">
@@ -57,6 +57,16 @@
     .container { width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 24px; padding-right: 24px }
     .logo-link { display: flex; align-items: center; gap: 8px; overflow: visible; padding-right: 8px }
     .navbar-logo { height: 75px; width: auto; object-fit: contain; display: block }
+  </style>
+
+  <style>
+    .apply-hero {
+      min-height: 35vh;
+      margin-top: 80px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
   </style>
 </head>
 
