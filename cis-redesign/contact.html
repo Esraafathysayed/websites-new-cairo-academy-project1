@@ -12,8 +12,52 @@
   <link rel="apple-touch-icon" href="assets/CIS-logo.webp">
 
   <!-- Page stylesheets -->
-  <link rel="stylesheet" href="css/design-system.css">
-  <link rel="stylesheet" href="css/main.css">
+  <!-- Preload fonts to prevent layout shift -->
+  <link rel="preload" href="fonts/Cairo-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Cairo-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Tajawal-Regular.ttf" as="font" type="font/ttf" crossorigin>
+
+  <!-- Load CSS asynchronously -->
+  <link rel="preload" href="css/design-system.css" as="style">
+  <link rel="preload" href="css/main.css" as="style">
+  <link rel="stylesheet" href="css/design-system.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/main.css">
+  </noscript>
+
+  <!-- Inline critical CSS: above-the-fold styles for instant first paint -->
+  <style>
+    :root {
+      --color-primary: #E65F2B;
+      --color-primary-hover: #C54617;
+      --color-primary-light: rgba(230, 95, 43, 0.1);
+      --color-secondary: #0F0F10;
+      --color-secondary-light: #1A1A1C;
+      --color-bg-neutral: #FAF9F5;
+      --color-bg-card: #FFFFFF;
+      --color-accent-gold: #FFA800;
+      --gradient-primary: linear-gradient(135deg, #E65F2B 0%, #FFA800 100%);
+      --gradient-dark: linear-gradient(135deg, #0F0F10 0%, #1E1E22 100%);
+      --text-dark: #0F0F10;
+      --text-muted: #55555A;
+      --text-light: #FFFFFF;
+      --text-light-muted: rgba(255, 255, 255, 0.7);
+      --header-height: 80px;
+      --font-headings: 'Cairo', sans-serif;
+      --font-body: 'Tajawal', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; border: 0 }
+    html { font-size: 16px; background-color: #FAF9F5; color: #0F0F10; scroll-behavior: smooth; scroll-padding-top: 100px }
+    body { font-family: var(--font-body); -webkit-font-smoothing: antialiased; line-height: 1.6; overflow-x: hidden; direction: inherit; text-align: inherit }
+    .main-header { position: fixed; top: 0; left: 0; width: 100%; height: 80px; background-color: rgba(250, 249, 245, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(15, 15, 16, 0.05); z-index: 1000 }
+    .header-container { display: flex; align-items: center; justify-content: space-between; height: 100%; overflow: visible }
+    .container { width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 24px; padding-right: 24px }
+    .logo-link { display: flex; align-items: center; gap: 8px; overflow: visible; padding-right: 8px }
+    .navbar-logo { height: 75px; width: auto; object-fit: contain; display: block }
+  </style>
+
   <style>
     .contact-hero {
       min-height: 35vh;

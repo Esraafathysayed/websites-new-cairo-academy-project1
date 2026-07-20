@@ -22,11 +22,43 @@
   <link rel="preload" as="image" href="assets/hero_bg.webp" fetchpriority="high" type="image/webp">
 
   <!-- Page stylesheets -->
-  <link rel="stylesheet" href="css/design-system.css">
-  <link rel="stylesheet" href="css/main.css">
+  <!-- Preload fonts to prevent layout shift -->
+  <link rel="preload" href="fonts/Cairo-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Cairo-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Tajawal-Regular.ttf" as="font" type="font/ttf" crossorigin>
+
+  <!-- Load CSS asynchronously -->
+  <link rel="preload" href="css/design-system.css" as="style">
+  <link rel="preload" href="css/main.css" as="style">
+  <link rel="stylesheet" href="css/design-system.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/main.css">
+  </noscript>
 
   <!-- Inline critical CSS: above-the-fold styles for instant first paint -->
   <style>
+    :root {
+      --color-primary: #E65F2B;
+      --color-primary-hover: #C54617;
+      --color-primary-light: rgba(230, 95, 43, 0.1);
+      --color-secondary: #0F0F10;
+      --color-secondary-light: #1A1A1C;
+      --color-bg-neutral: #FAF9F5;
+      --color-bg-card: #FFFFFF;
+      --color-accent-gold: #FFA800;
+      --gradient-primary: linear-gradient(135deg, #E65F2B 0%, #FFA800 100%);
+      --gradient-dark: linear-gradient(135deg, #0F0F10 0%, #1E1E22 100%);
+      --text-dark: #0F0F10;
+      --text-muted: #55555A;
+      --text-light: #FFFFFF;
+      --text-light-muted: rgba(255, 255, 255, 0.7);
+      --header-height: 80px;
+      --font-headings: 'Cairo', sans-serif;
+      --font-body: 'Tajawal', sans-serif;
+    }
+
     /* Prevent layout flash before external CSS loads */
     * {
       box-sizing: border-box;
