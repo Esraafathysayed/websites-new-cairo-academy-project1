@@ -1574,13 +1574,20 @@ function initScrollTop() {
   const scrollTopBtn = document.getElementById("scroll-top-btn");
   if (!scrollTopBtn) return;
 
+  let scrollTicking = false;
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-      scrollTopBtn.classList.add("visible");
-    } else {
-      scrollTopBtn.classList.remove("visible");
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        if (window.scrollY > 400) {
+          scrollTopBtn.classList.add("visible");
+        } else {
+          scrollTopBtn.classList.remove("visible");
+        }
+        scrollTicking = false;
+      });
+      scrollTicking = true;
     }
-  });
+  }, { passive: true });
 
   scrollTopBtn.addEventListener("click", () => {
     window.scrollTo({
