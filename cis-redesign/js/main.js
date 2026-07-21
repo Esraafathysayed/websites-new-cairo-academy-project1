@@ -225,18 +225,20 @@ function initNavPill() {
     const link = item.querySelector('.nav-link');
     if (!link) return;
     
+    // Batch READS
     const menuRect = navMenu.getBoundingClientRect();
     const linkRect = link.getBoundingClientRect();
     const isRTL = document.documentElement.dir === "rtl";
+    
+    const leftOffset = linkRect.left - menuRect.left;
+    const linkWidth = linkRect.width;
 
-    pill.style.width = "1px";
-    if (isRTL) {
-      const leftOffset = linkRect.left - menuRect.left;
-      pill.style.transform = `translate3d(${leftOffset}px, -50%, 0) scaleX(${linkRect.width})`;
-    } else {
-      pill.style.transform = `translate3d(${linkRect.left - menuRect.left}px, -50%, 0) scaleX(${linkRect.width})`;
-    }
-    pill.style.transformOrigin = "left center";
+    // Batch WRITES in requestAnimationFrame
+    requestAnimationFrame(() => {
+      pill.style.width = "1px";
+      pill.style.transform = `translate3d(${leftOffset}px, -50%, 0) scaleX(${linkWidth})`;
+      pill.style.transformOrigin = "left center";
+    });
   }
 
   // Snap the pill back to the active item, or collapse it on pages that have no nav
@@ -254,10 +256,14 @@ function initNavPill() {
   // Disable transition briefly so the pill snaps to position on load
   pill.style.transition = "none";
   resetPill();
-  // Force reflow, then re-enable transition
-  pill.getBoundingClientRect();
-  pill.style.transition = "";
-  navMenu.classList.add("pill-ready");
+  
+  // Use double rAF to flush CSS transition state without forcing synchronous layout
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      pill.style.transition = "";
+      navMenu.classList.add("pill-ready");
+    });
+  });
 
   // Cache DOM nodes for better performance and to prevent forced reflows
   const allNavItems = navMenu.querySelectorAll(".nav-item");
@@ -291,9 +297,12 @@ function initNavPill() {
     resizeTimer = setTimeout(() => {
       pill.style.transition = "none";
       resetPill();
-      // Force layout recalculation for the transition reset
-      pill.getBoundingClientRect();
-      pill.style.transition = "";
+      // Use double rAF to avoid forced synchronous layout on resize
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          pill.style.transition = "";
+        });
+      });
     }, 150);
   }, { passive: true });
 }
