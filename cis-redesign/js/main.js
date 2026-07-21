@@ -2,7 +2,7 @@
 // File: main.js
 // Purpose: Interactive UI components, animations, counters, slider rendering, admissions wizard, courses search, faculty directory, and student services dashboard.
 
-window.translateJS = function(key, fallback) {
+window.translateJS = function (key, fallback) {
   if (typeof I18n !== 'undefined' && I18n.t && I18n.t[key] !== undefined) {
     let str = I18n.t[key];
     if (typeof str === 'string') {
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 12. General Interactive Toggles & Tabs
   initTabsAndAccordions();
-  
+
   // 13. Smooth Scroll Back to Top Button
   initScrollTop();
 
@@ -110,14 +110,14 @@ function initMobileMenu() {
   const navDrawer = document.getElementById("nav-drawer");
   const drawerClose = document.getElementById("drawer-close");
   const overlay = document.getElementById("drawer-overlay");
-  
+
   if (!menuToggle || !navDrawer) return;
 
   function openDrawer() {
     navDrawer.classList.add("active");
     if (overlay) overlay.classList.add("active");
     document.body.style.overflow = "hidden";
-    
+
     // Add ESC key listener when opened
     document.addEventListener("keydown", handleEscape);
   }
@@ -126,11 +126,11 @@ function initMobileMenu() {
     navDrawer.classList.remove("active");
     if (overlay) overlay.classList.remove("active");
     document.body.style.overflow = "";
-    
+
     // Clean up ESC key listener
     document.removeEventListener("keydown", handleEscape);
   }
-  
+
   function handleEscape(e) {
     if (e.key === "Escape" || e.key === "Esc") {
       closeDrawer();
@@ -140,7 +140,7 @@ function initMobileMenu() {
   menuToggle.addEventListener("click", openDrawer);
   if (drawerClose) drawerClose.addEventListener("click", closeDrawer);
   if (overlay) overlay.addEventListener("click", closeDrawer);
-  
+
   // Close drawer when any menu link is clicked
   const drawerLinks = navDrawer.querySelectorAll('a');
   drawerLinks.forEach(link => {
@@ -222,19 +222,23 @@ function initNavPill() {
   // Position the pill under an element (measured relative to navMenu)
   function movePillTo(item) {
     if (!item) return;
+    const link = item.querySelector('.nav-link');
+    if (!link) return;
+    
+    // Batch READS
     const menuRect = navMenu.getBoundingClientRect();
-    const itemRect = item.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
     const isRTL = document.documentElement.dir === "rtl";
+    
+    const leftOffset = linkRect.left - menuRect.left;
+    const linkWidth = linkRect.width;
 
-    if (isRTL) {
-      // In RTL, "left" in CSS is measured from left edge of the container
-      // We calculate the item's left edge relative to the menu's left edge
-      const leftOffset = itemRect.left - menuRect.left;
-      pill.style.left = leftOffset + "px";
-    } else {
-      pill.style.left = (itemRect.left - menuRect.left) + "px";
-    }
-    pill.style.width = itemRect.width + "px";
+    // Batch WRITES in requestAnimationFrame
+    requestAnimationFrame(() => {
+      pill.style.width = "1px";
+      pill.style.transform = `translate3d(${leftOffset}px, -50%, 0) scaleX(${linkWidth})`;
+      pill.style.transformOrigin = "left center";
+    });
   }
 
   // Snap the pill back to the active item, or collapse it on pages that have no nav
@@ -252,10 +256,14 @@ function initNavPill() {
   // Disable transition briefly so the pill snaps to position on load
   pill.style.transition = "none";
   resetPill();
-  // Force reflow, then re-enable transition
-  pill.getBoundingClientRect();
-  pill.style.transition = "";
-  navMenu.classList.add("pill-ready");
+  
+  // Use double rAF to flush CSS transition state without forcing synchronous layout
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      pill.style.transition = "";
+      navMenu.classList.add("pill-ready");
+    });
+  });
 
   // Cache DOM nodes for better performance and to prevent forced reflows
   const allNavItems = navMenu.querySelectorAll(".nav-item");
@@ -289,9 +297,12 @@ function initNavPill() {
     resizeTimer = setTimeout(() => {
       pill.style.transition = "none";
       resetPill();
-      // Force layout recalculation for the transition reset
-      pill.getBoundingClientRect();
-      pill.style.transition = "";
+      // Use double rAF to avoid forced synchronous layout on resize
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          pill.style.transition = "";
+        });
+      });
     }, 150);
   }, { passive: true });
 }
@@ -301,23 +312,23 @@ function initNavPill() {
    ========================================== */
 function initButtonRipple() {
   // Use event delegation to support dynamically rendered buttons!
-  document.body.addEventListener("click", function(e) {
+  document.body.addEventListener("click", function (e) {
     const button = e.target.closest(".btn");
     if (!button) return;
 
     const rect = button.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     // Batch DOM write in requestAnimationFrame to prevent forced synchronous layout
     requestAnimationFrame(() => {
       const ripple = document.createElement("span");
       ripple.className = "ripple";
       ripple.style.left = `${x}px`;
       ripple.style.top = `${y}px`;
-      
+
       button.appendChild(ripple);
-      
+
       setTimeout(() => {
         ripple.remove();
       }, 600);
@@ -330,39 +341,39 @@ function initButtonRipple() {
    ========================================== */
 function initAnimatedCounters() {
   const counters = document.querySelectorAll('.counter');
-  
+
   function animateCounter(el) {
     const target = parseInt(el.getAttribute('data-target'), 10);
     if (isNaN(target)) return;
-    
+
     const duration = 2000; // ~2 seconds
     let startTime = null;
-    
+
     function easeOutQuad(t) {
       return t * (2 - t);
     }
-    
+
     function step(timestamp) {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
+
       const currentValue = Math.round(easeOutQuad(progress) * target);
-      
+
       el.textContent = String(currentValue);
-      
+
       if (progress < 1) {
         requestAnimationFrame(step);
       } else {
         el.textContent = String(target);
       }
     }
-    
+
     requestAnimationFrame(step);
   }
 
   const statsSection = document.getElementById('cis-stats-section') || document.querySelector('.hero-stats-bar');
-  
+
   if (statsSection && counters.length > 0) {
     if (window.IntersectionObserver) {
       const observer = new IntersectionObserver((entries, obs) => {
@@ -517,7 +528,7 @@ function renderTestimonials() {
   if (!container || !window.CIS_DATA || !CIS_DATA.testimonials) return;
 
   const items = CIS_DATA.testimonials;
-  
+
   function updateSlider() {
     const slide = items[activeTestimonialIndex];
     container.style.opacity = 0;
@@ -913,7 +924,7 @@ function initAdmissionsFormWizard() {
     if (currentStepIndex === steps.length - 1) {
       nextBtn.textContent = window.translateJS("js_str_88", "تأكيد وإرسال الطلب");
       nextBtn.classList.add("btn-gradient");
-      
+
       const rName = document.getElementById("rev-name");
       const rPhone = document.getElementById("rev-phone");
       const rDept = document.getElementById("rev-dept");
@@ -1120,9 +1131,9 @@ function initCoursesSearch(courses) {
 
   searchInput.addEventListener("input", (e) => {
     const term = e.target.value.toLowerCase().trim();
-    const filtered = courses.filter(course => 
-      course.name.toLowerCase().includes(term) || 
-      course.code.toLowerCase().includes(term) || 
+    const filtered = courses.filter(course =>
+      course.name.toLowerCase().includes(term) ||
+      course.code.toLowerCase().includes(term) ||
       course.term.toLowerCase().includes(term)
     );
     renderDeptCourses(filtered);
@@ -1172,9 +1183,9 @@ function initFacultyDirectory() {
     const dept = filterSelect ? filterSelect.value : "all";
 
     const filtered = items.filter(fac => {
-      const matchSearch = fac.name.toLowerCase().includes(term) || 
-                          fac.role.toLowerCase().includes(term) || 
-                          fac.bio.toLowerCase().includes(term);
+      const matchSearch = fac.name.toLowerCase().includes(term) ||
+        fac.role.toLowerCase().includes(term) ||
+        fac.bio.toLowerCase().includes(term);
       const matchDept = (dept === "all") || (fac.deptId === dept);
       return matchSearch && matchDept;
     });
@@ -1190,7 +1201,7 @@ function initFacultyDirectory() {
   // Close modal when close button or backdrop is clicked
   const closeModalBtn = document.getElementById("faculty-modal-close");
   const modalOverlay = document.getElementById("faculty-details-modal");
-  
+
   if (closeModalBtn) {
     closeModalBtn.addEventListener("click", closeFacultyModal);
   }
@@ -1311,9 +1322,9 @@ function initStudentServicesPortal() {
               ${intern.status}
             </span>
             ${isClosed
-              ? `<button class="btn btn-outline" style="padding:6px 14px; font-size:var(--font-size-xs); border-radius:var(--radius-full); opacity:0.5;cursor:not-allowed;" disabled>${closedText}</button>`
-              : `<a class="btn btn-primary" style="padding:6px 14px; font-size:var(--font-size-xs); border-radius:var(--radius-full);" href="apply-internship.html?opportunity=${encodeURIComponent(intern.id)}">${registerText}</a>`
-            }
+          ? `<button class="btn btn-outline" style="padding:6px 14px; font-size:var(--font-size-xs); border-radius:var(--radius-full); opacity:0.5;cursor:not-allowed;" disabled>${closedText}</button>`
+          : `<a class="btn btn-primary" style="padding:6px 14px; font-size:var(--font-size-xs); border-radius:var(--radius-full);" href="apply-internship.html?opportunity=${encodeURIComponent(intern.id)}">${registerText}</a>`
+        }
           </div>
         </div>
       `;
@@ -1414,8 +1425,8 @@ function initStudentServicesPortal() {
       if (compCat === "portal") {
         catText = window.translateJS("js_str_38", "بوابة الخدمات");
       } else {
-        const parts = (I18n.t && I18n.t["js_str_118"]) 
-          ? I18n.t["js_str_118"].split(":") 
+        const parts = (I18n.t && I18n.t["js_str_118"])
+          ? I18n.t["js_str_118"].split(":")
           : ["الامتحانات والكنترول", "أعضاء التدريس وشؤون دراسية"];
         const examsText = parts[0] ? parts[0].replace(/^[(\s"']+|[)\s"':,]+$/g, '') : "الامتحانات والكنترول";
         const academicText = parts[1] ? parts[1].replace(/^[(\s"']+|[)\s"':,]+$/g, '') : "أعضاء التدريس وشؤون دراسية";
@@ -1464,7 +1475,7 @@ function initVideoLightbox() {
 
   playBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    
+
     const lightbox = document.createElement("div");
     lightbox.id = "video-lightbox";
     lightbox.style.position = "fixed";
@@ -1479,23 +1490,23 @@ function initVideoLightbox() {
     lightbox.style.zIndex = "99999";
     lightbox.style.opacity = "0";
     lightbox.style.transition = "opacity 0.3s ease";
-    
+
     lightbox.innerHTML = `
       <div style="position:relative; width:90%; max-width:800px; aspect-ratio:16/9; background:#000; border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-lg);">
         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/3i0edKWPjAs?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:0;"></iframe>
         <button id="lightbox-close" style="position:absolute; top:12px; left:12px; background:rgba(255,255,255,0.2); color:#fff; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-weight:bold; font-size:18px;">&times;</button>
       </div>
     `;
-    
+
     document.body.appendChild(lightbox);
     document.body.style.overflow = "hidden";
-    
+
     setTimeout(() => {
       lightbox.style.opacity = "1";
     }, 50);
 
     const closeBtn = lightbox.querySelector("#lightbox-close");
-    
+
     function closeLightbox() {
       lightbox.style.opacity = "0";
       setTimeout(() => {
@@ -1503,7 +1514,7 @@ function initVideoLightbox() {
         document.body.style.overflow = "";
       }, 300);
     }
-    
+
     closeBtn.addEventListener("click", closeLightbox);
     lightbox.addEventListener("click", (evt) => {
       if (evt.target === lightbox) closeLightbox();
@@ -1524,7 +1535,7 @@ function initTabsAndAccordions() {
 
       const siblingButtons = btn.parentElement.querySelectorAll("[data-tab-target]");
       siblingButtons.forEach(sib => sib.classList.remove("active"));
-      
+
       const siblingPanels = targetPanel.parentElement.children;
       Array.from(siblingPanels).forEach(pane => pane.classList.remove("active"));
 
@@ -1563,13 +1574,20 @@ function initScrollTop() {
   const scrollTopBtn = document.getElementById("scroll-top-btn");
   if (!scrollTopBtn) return;
 
+  let scrollTicking = false;
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-      scrollTopBtn.classList.add("visible");
-    } else {
-      scrollTopBtn.classList.remove("visible");
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        if (window.scrollY > 400) {
+          scrollTopBtn.classList.add("visible");
+        } else {
+          scrollTopBtn.classList.remove("visible");
+        }
+        scrollTicking = false;
+      });
+      scrollTicking = true;
     }
-  });
+  }, { passive: true });
 
   scrollTopBtn.addEventListener("click", () => {
     window.scrollTo({
@@ -1644,8 +1662,8 @@ function initNewsPage() {
     const filtered = CIS_DATA.news.filter(item => {
       const matchCat = (activeCategory === "all") || (item.category === activeCategory);
       const matchSearch = item.title.toLowerCase().includes(searchWord) ||
-                          item.summary.toLowerCase().includes(searchWord) ||
-                          item.body.toLowerCase().includes(searchWord);
+        item.summary.toLowerCase().includes(searchWord) ||
+        item.body.toLowerCase().includes(searchWord);
       return matchCat && matchSearch;
     });
 
@@ -1753,14 +1771,14 @@ function openNewsDetail(id) {
       const activeCategory = activePill ? activePill.getAttribute("data-category") : "all";
       const trendingContainer = document.getElementById("trending-news-list");
       const newsContainer = document.getElementById("news-page-grid");
-      
+
       // spotlight featured update
       const featuredItem = CIS_DATA.news.find(item => item.featured) || CIS_DATA.news[0];
       const viewsSpotlight = featuredWrapper.querySelector(".featured-content span");
       if (viewsSpotlight && featuredItem.id === id) {
         viewsSpotlight.innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg> ${item.views} <span data-i18n="js_str_65">مشاهدة</span>`;
       }
-      
+
       // grid update
       const allNewsCards = newsContainer.querySelectorAll(".news-card");
       allNewsCards.forEach(card => {
@@ -2552,8 +2570,8 @@ function initItUnitPage() {
       if (catVal === 'email') {
         subPrefix = window.translateJS("js_str_11", "البريد الجامعي");
       } else {
-        const parts = (I18n.t && I18n.t["js_str_15"]) 
-          ? I18n.t["js_str_15"].split(":") 
+        const parts = (I18n.t && I18n.t["js_str_15"])
+          ? I18n.t["js_str_15"].split(":")
           : ["البوابة الذكية", "الشبكات والواي فاي"];
         const portalText = parts[0] ? parts[0].replace(/^[(\s"']+|[)\s"':,]+$/g, '') : "البوابة الذكية";
         const networkText = parts[1] ? parts[1].replace(/^[(\s"']+|[)\s"':,]+$/g, '') : "الشبكات والواي فاي";
@@ -2708,21 +2726,21 @@ function initCareerPage() {
     if (cvOutTitle && cvInputTitle) cvOutTitle.textContent = cvInputTitle.value.trim() || window.translateJS("js_str_69", "التخصص المهنـي");
     if (cvOutEmail && cvInputEmail) cvOutEmail.textContent = cvInputEmail.value.trim() || window.translateJS("js_str_137", "البريد الإلكتروني");
     if (cvOutPhone && cvInputPhone) cvOutPhone.textContent = cvInputPhone.value.trim() || window.translateJS("js_str_74", "رقم الهاتف للتواصل");
-    
+
     if (cvOutBio && cvInputBio) {
       cvOutBio.textContent = cvInputBio.value.trim() || window.translateJS("js_str_113", "اكتب نبذة مختصرة عن مهاراتك وأهدافك الوظيفية تظهر هنا للشركات.");
     }
-    
+
     if (cvOutEdu && cvInputEdu) {
       cvOutEdu.innerHTML = (cvInputEdu.value.trim() || window.translateJS("js_str_108", "المعهد العالي لعلوم الحاسب ونظم المعلومات - شعبة علوم الحاسب (دفعة ٢٠٢٦)"))
-                            .replace(/\n/g, "<br>");
+        .replace(/\n/g, "<br>");
     }
-    
+
     if (cvOutExp && cvInputExp) {
       cvOutExp.innerHTML = (cvInputExp.value.trim() || window.translateJS("js_str_72", "مطور برمجيات متدرب في شركة حلول برمجية (التدريب الصيفي ٢٠٢٥) - العمل على بناء واجهات المستخدم واختبار الأنظمة."))
-                            .replace(/\n/g, "<br>");
+        .replace(/\n/g, "<br>");
     }
-    
+
     if (cvOutSkills && cvInputSkills) {
       const skills = cvInputSkills.value.split(",");
       cvOutSkills.innerHTML = skills.map(sk => {
@@ -2841,7 +2859,7 @@ function initFaqPage() {
 function initGlobalSearch() {
   const searchTriggers = document.querySelectorAll(".global-search-trigger-btn");
   const backdrop = document.getElementById("site-search-modal-backdrop");
-  
+
   if (!backdrop) return;
 
   const closeBtn = backdrop.querySelector(".search-modal-close-btn");
@@ -2890,8 +2908,8 @@ function initGlobalSearch() {
 
   // Recent Searches
   function getRecent() {
-    const defaultRecent = (I18n.t && I18n.t["js_str_52"]) 
-      ? I18n.t["js_str_52"].split(",").map(s => s.replace(/^[(\s"']+|[)\s"':,]+$/g, '')) 
+    const defaultRecent = (I18n.t && I18n.t["js_str_52"])
+      ? I18n.t["js_str_52"].split(",").map(s => s.replace(/^[(\s"']+|[)\s"':,]+$/g, ''))
       : ["تنسيق القبول", "جدول المحاضرات", "نتائج الامتحانات"];
     try {
       return JSON.parse(localStorage.getItem("cis_recent_searches")) || defaultRecent;
@@ -2917,7 +2935,7 @@ function initGlobalSearch() {
     `).join("");
   }
 
-  window.triggerPresetSearch = function(term) {
+  window.triggerPresetSearch = function (term) {
     if (!searchInput) return;
     searchInput.value = term;
     performSearch(term);
@@ -2931,8 +2949,8 @@ function initGlobalSearch() {
       return;
     }
 
-    const hits = searchIndex.filter(item => 
-      item.title.toLowerCase().includes(clean) || 
+    const hits = searchIndex.filter(item =>
+      item.title.toLowerCase().includes(clean) ||
       item.desc.toLowerCase().includes(clean)
     );
 
