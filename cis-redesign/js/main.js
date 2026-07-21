@@ -222,19 +222,21 @@ function initNavPill() {
   // Position the pill under an element (measured relative to navMenu)
   function movePillTo(item) {
     if (!item) return;
+    const link = item.querySelector('.nav-link');
+    if (!link) return;
+    
     const menuRect = navMenu.getBoundingClientRect();
-    const itemRect = item.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
     const isRTL = document.documentElement.dir === "rtl";
 
+    pill.style.width = "1px";
     if (isRTL) {
-      // In RTL, "left" in CSS is measured from left edge of the container
-      // We calculate the item's left edge relative to the menu's left edge
-      const leftOffset = itemRect.left - menuRect.left;
-      pill.style.left = leftOffset + "px";
+      const leftOffset = linkRect.left - menuRect.left;
+      pill.style.transform = `translate3d(${leftOffset}px, -50%, 0) scaleX(${linkRect.width})`;
     } else {
-      pill.style.left = (itemRect.left - menuRect.left) + "px";
+      pill.style.transform = `translate3d(${linkRect.left - menuRect.left}px, -50%, 0) scaleX(${linkRect.width})`;
     }
-    pill.style.width = itemRect.width + "px";
+    pill.style.transformOrigin = "left center";
   }
 
   // Snap the pill back to the active item, or collapse it on pages that have no nav
