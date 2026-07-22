@@ -299,7 +299,7 @@
 
       <!-- Contact & Map Column -->
       <div class="footer-col">
-        <h4 data-i18n="footer_contact_title">تواصل معنا</h4>
+        <h2 data-i18n="footer_contact_title">تواصل معنا</h2>
         <div
           style="border-radius:var(--radius-sm); overflow:hidden; height:110px; margin-bottom:var(--space-xs); border: 1px solid rgba(255,255,255,0.1);">
           <div
@@ -378,7 +378,7 @@
       var course = courses.filter(function (c) { return c.code.toUpperCase() === code; })[0];
 
       if (!course) {
-        stack.innerHTML = '<div class="lectures-empty"><h3>' + T.notFound + '</h3>' +
+        stack.innerHTML = '<div class="lectures-empty"><h2>' + T.notFound + '</h2>' +
           '<p style="margin-top:8px;"><a href="services.html#lms" style="color:var(--color-primary); font-weight:700;">' +
           T.back + '</a></p></div>';
         return;
@@ -406,7 +406,7 @@
           '<span class="lecture-play"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>' +
           '</div>' +
           '<div class="lecture-meta">' +
-          '<h3 class="lecture-title">' + T.lecture + ' ' + num + '</h3>' +
+          '<h2 class="lecture-title">' + T.lecture + ' ' + num + '</h2>' +
           '<p class="lecture-sub">' + course.name + ' \u2014 ' + course.prof + '</p>' +
           '</div>' +
           '<a class="btn btn-outline lecture-watch" href="https://www.youtube.com/watch?v=' + id + '" target="_blank" rel="noopener">' + T.watch + '</a>' +

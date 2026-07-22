@@ -6,7 +6,7 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
           <span class="badge badge-primary">${e.category}</span>
           <span style="font-size:var(--font-size-xs); color:var(--text-muted);">${e.date}</span>
         </div>
-        <h3 style="font-size:var(--font-size-md); margin-bottom:var(--space-xs); line-height:1.4;">${e.title}</h3>
+        <div style="font-size:var(--font-size-md); margin-bottom:var(--space-xs); line-height:1.4;">${e.title}</div>
         <p style="font-size:var(--font-size-sm); color:var(--text-muted); margin-bottom:var(--space-sm);">${e.summary}</p>
         <a href="${e.link}" class="btn-text" style="color:var(--color-primary); font-weight:600; display:inline-flex; align-items:center; gap:4px; font-size:var(--font-size-sm);">
           <span data-i18n="js_str_119">اقرأ المزيد</span> 
@@ -22,7 +22,7 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
       </div>
       <div class="event-details" style="flex:1;">
         <span class="badge badge-gold" style="margin-bottom:6px;">${e.tag}</span>
-        <h3 style="font-size:var(--font-size-md); line-height:1.3; margin-bottom:4px;">${e.title}</h3>
+        <div style="font-size:var(--font-size-md); line-height:1.3; margin-bottom:4px;">${e.title}</div>
         <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm); font-size:var(--font-size-xs); color:var(--text-muted);">
           <span style="display:inline-flex; align-items:center; gap:4px;">
             <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -41,7 +41,7 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
           <svg style="color:rgba(230, 95, 43, 0.2); width:64px; height:64px; margin-bottom:var(--space-sm);" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
           <p style="font-size:var(--font-size-md); font-style:italic; line-height:1.7; max-width:800px; margin-bottom:var(--space-md); font-weight:500;">"${a.quote}"</p>
           <img src="${a.avatar}" alt="${a.name}" style="width:70px; height:70px; border-radius:50%; border:3px solid var(--color-primary); box-shadow:var(--shadow-sm); object-fit:cover; margin-bottom:var(--space-xs);">
-          <h4 style="font-size:var(--font-size-base); margin-bottom:2px;">${a.name}</h4>
+          <div style="font-size:var(--font-size-base); margin-bottom:2px;">${a.name}</div>
           <span style="font-size:var(--font-size-xs); color:var(--text-muted);">${a.role}</span>
         </div>
       `,e.style.opacity=1},250)}a();let n=document.getElementById("slide-prev"),i=document.getElementById("slide-next");n&&i&&(n.addEventListener("click",()=>{activeTestimonialIndex=(activeTestimonialIndex-1+t.length)%t.length,a()}),i.addEventListener("click",()=>{activeTestimonialIndex=(activeTestimonialIndex+1)%t.length,a()}))}function renderTimeline(){let e=document.getElementById("timeline-wrapper");e&&window.CIS_DATA&&CIS_DATA.timeline&&(e.innerHTML=CIS_DATA.timeline.map((e,t)=>`
@@ -51,7 +51,7 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
       </div>
       <div class="card timeline-card" style="flex:1; padding:var(--space-md); border-right: 4px solid var(--color-primary);">
         <span style="font-family:var(--font-headings); font-weight:800; font-size:1.5rem; color:var(--color-primary); display:block; margin-bottom:4px;">${e.year}</span>
-        <h3 style="font-size:var(--font-size-md); margin-bottom:var(--space-xs);">${e.title}</h3>
+        <div style="font-size:var(--font-size-md); margin-bottom:var(--space-xs);">${e.title}</div>
         <p style="font-size:var(--font-size-sm); color:var(--text-muted); line-height:1.5;">${e.description}</p>
       </div>
     </div>
@@ -90,24 +90,24 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
         <div class="career-icon">
           <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
-        <h4 class="career-title">${e.title}</h4>
+        <div class="career-title">${e.title}</div>
         <p class="career-desc">${e.desc}</p>
       </div>
     `).join("")),renderDeptCourses(t.courses),initCoursesSearch(t.courses);let p=document.getElementById("dept-faculty-grid");p&&(p.innerHTML=t.faculty.map(e=>`
       <div class="card" style="text-align:center; padding:var(--space-md);">
         <img src="${e.img}" alt="${e.name}" style="width:90px; height:90px; border-radius:50%; object-fit:cover; margin-bottom:var(--space-xs); border: 2px solid var(--color-primary);">
-        <h4 style="font-size:var(--font-size-base); margin-bottom:2px;">${e.name}</h4>
+        <div style="font-size:var(--font-size-base); margin-bottom:2px;">${e.name}</div>
         <span style="font-size:var(--font-size-xs); color:var(--text-muted); display:block; height:32px; line-height:1.3;">${e.role}</span>
         <a href="faculty.html" class="btn btn-outline" style="padding:6px 12px; font-size:var(--font-size-xs); border-radius:6px; margin-top:8px; display:inline-flex;"><span data-i18n="js_str_32">السيرة الأكاديمية</span></a>
       </div>
     `).join(""));let m=document.getElementById("dept-labs-stack");m&&(m.innerHTML=t.labs.map((e,t)=>`
       <div class="card" style="display:flex; flex-direction:column; gap:8px;">
-        <h4 style="font-size:var(--font-size-md); color:var(--color-primary);">${e.name}</h4>
+        <div style="font-size:var(--font-size-md); color:var(--color-primary);">${e.name}</div>
         <p style="font-size:var(--font-size-sm); color:var(--text-muted); line-height:1.5;">${e.desc}</p>
       </div>
     `).join(""));let v=document.getElementById("dept-research-stack");v&&(v.innerHTML=t.research.map(e=>`
       <div class="card" style="padding:var(--space-md); border-right:4px solid var(--color-accent-gold);">
-        <h4 style="font-size:var(--font-size-base); margin-bottom:4px;">${e.title}</h4>
+        <div style="font-size:var(--font-size-base); margin-bottom:4px;">${e.title}</div>
         <p style="font-size:var(--font-size-xs); color:var(--text-muted); line-height:1.5;">${e.desc}</p>
       </div>
     `).join(""));let g=document.getElementById("dept-faqs-accordion");g&&(g.innerHTML=t.faqs.map(e=>`
@@ -126,13 +126,13 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
     </tr>
   `).join("")}}function initCoursesSearch(e){let t=document.getElementById("course-search-input");t&&t.addEventListener("input",t=>{let a=t.target.value.toLowerCase().trim(),n=e.filter(e=>e.name.toLowerCase().includes(a)||e.code.toLowerCase().includes(a)||e.term.toLowerCase().includes(a));renderDeptCourses(n)})}function initFacultyDirectory(){let e=document.getElementById("faculty-directory-grid");if(!e||!window.CIS_DATA||!CIS_DATA.facultyList)return;let t=document.getElementById("faculty-search-input"),a=document.getElementById("faculty-dept-filter"),n=CIS_DATA.facultyList;function i(t){if(0===t.length){e.innerHTML=`
         <div style="grid-column:span 12; text-align:center; padding:var(--space-xl); color:var(--text-muted);">
-          <h3><span data-i18n="js_str_6">لا توجد نتائج مطابقة لمصطلح البحث أو ال<span data-i18n="js_str_2">قسم</span> المختار.</span></h3>
+          <div><span data-i18n="js_str_6">لا توجد نتائج مطابقة لمصطلح البحث أو ال<span data-i18n="js_str_2">قسم</span> المختار.</span></div>
         </div>
       `;return}e.innerHTML=t.map(e=>`
       <div class="card faculty-card">
         <img src="${e.img}" alt="${e.name}" class="faculty-avatar">
         <span class="faculty-dept-badge">${e.deptName}</span>
-        <h3>${e.name}</h3>
+        <div>${e.name}</div>
         <p class="faculty-role-text">${e.role}</p>
         <div class="faculty-contact-strip">
           <span class="faculty-contact-chip">
@@ -146,7 +146,7 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
       <div class="lms-row">
         <div style="flex:1;">
           <span class="badge badge-primary" style="margin-bottom:4px; display:inline-block;">${e.code}</span>
-          <h4 style="font-size:var(--font-size-base); margin-bottom:2px; font-weight:700;">${e.name}</h4>
+          <div style="font-size:var(--font-size-base); margin-bottom:2px; font-weight:700;">${e.name}</div>
           <span style="font-size:var(--font-size-xs); color:var(--text-muted);"><span data-i18n="js_str_67">أستاذ المادة:</span> ${e.prof}</span>
         </div>
         <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
@@ -160,7 +160,7 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
     `).join(""));let a=document.getElementById("portal-internships-grid");a&&CIS_DATA.internships&&(a.innerHTML=CIS_DATA.internships.map(e=>{let t=/مغلق|closed/i.test(e.status)||/انتهى|ended/i.test(e.deadline),a="en"===(localStorage.getItem("cis_lang")||"ar");return`
         <div class="intern-card ${t?"closed":""}">
           <div>
-            <h4 style="font-size:var(--font-size-base); margin-bottom:6px; font-weight:700;">${e.title}</h4>
+            <div style="font-size:var(--font-size-base); margin-bottom:6px; font-weight:700;">${e.title}</div>
             <span class="badge badge-gold" style="margin-bottom:10px; display:inline-block;">${e.type}</span>
             <p style="font-size:var(--font-size-xs); color:var(--text-muted); display:flex; align-items:center; gap:4px;">
               <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -226,7 +226,7 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
       </div>
     `,document.body.appendChild(t),document.body.style.overflow="hidden",setTimeout(()=>{t.style.opacity="1"},50);let a=t.querySelector("#lightbox-close");function n(){t.style.opacity="0",setTimeout(()=>{t.remove(),document.body.style.overflow=""},300)}a.addEventListener("click",n),t.addEventListener("click",e=>{e.target===t&&n()})})}function initTabsAndAccordions(){let e=document.querySelectorAll("[data-tab-target]");e.forEach(e=>{e.addEventListener("click",()=>{let t=e.getAttribute("data-tab-target"),a=document.querySelector(t);if(!a)return;let n=e.parentElement.querySelectorAll("[data-tab-target]");n.forEach(e=>e.classList.remove("active"));let i=a.parentElement.children;Array.from(i).forEach(e=>e.classList.remove("active")),e.classList.add("active"),a.classList.add("active")})}),document.body.addEventListener("click",e=>{let t=e.target.closest(".accordion-header");if(!t)return;let a=t.parentElement,n=t.nextElementSibling,i=a.classList.contains("active"),s=a.parentElement,r=s.querySelectorAll(".accordion-item");r.forEach(e=>{e.classList.remove("active");let t=e.querySelector(".accordion-content");t&&(t.style.maxHeight=null)}),i||(a.classList.add("active"),requestAnimationFrame(()=>{let height=n.scrollHeight;requestAnimationFrame(()=>{n.style.maxHeight=height+"px"})}))})}function initScrollTop(){let e=document.getElementById("scroll-top-btn");if(!e)return;let t=!1;window.addEventListener("scroll",()=>{t||(window.requestAnimationFrame(()=>{window.scrollY>400?e.classList.add("visible"):e.classList.remove("visible"),t=!1}),t=!0)},{passive:!0}),e.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})})}function initNewsPage(){let e=document.getElementById("news-page-grid");if(!e||!window.CIS_DATA||!CIS_DATA.news)return;let t=document.getElementById("news-search-input"),a=document.querySelectorAll(".news-pill"),n=document.getElementById("featured-news-wrapper"),i=document.getElementById("trending-news-list"),s="all",r="";function l(){let t=CIS_DATA.news.filter(e=>{let t="all"===s||e.category===s,a=e.title.toLowerCase().includes(r)||e.summary.toLowerCase().includes(r)||e.body.toLowerCase().includes(r);return t&&a});if(0===t.length){e.innerHTML=`
         <div style="grid-column:span 12; text-align:center; padding:var(--space-xl); color:var(--text-muted);">
-          <h3><span data-i18n="js_str_3">لا توجد أخبار مطابقة لبحثك في هذا ال<span data-i18n="js_str_2">قسم</span>.</span></h3>
+          <div><span data-i18n="js_str_3">لا توجد أخبار مطابقة لبحثك في هذا ال<span data-i18n="js_str_2">قسم</span>.</span></div>
         </div>
       `;return}e.innerHTML=t.map(e=>`
       <article class="card news-card" style="display:flex; flex-direction:column; justify-content:space-between; height:100%;">
@@ -239,7 +239,7 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
               <span class="badge badge-primary">${e.category}</span>
               <span style="font-size:10px; color:var(--text-muted);">${e.date}</span>
             </div>
-            <h3 style="font-size:var(--font-size-base); font-weight:700; line-height:1.4; margin-bottom:8px; color:var(--text-dark);">${e.title}</h3>
+            <div style="font-size:var(--font-size-base); font-weight:700; line-height:1.4; margin-bottom:8px; color:var(--text-dark);">${e.title}</div>
             <p style="font-size:var(--font-size-xs); color:var(--text-muted); line-height:1.5; margin-bottom:12px;">${e.summary}</p>
           </div>
         </div>
@@ -275,7 +275,7 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
         <span style="font-family:var(--font-headings); font-weight:800; font-size:1.8rem; color:var(--color-primary); line-height:1; min-width:30px;">٠${t+1}</span>
         <div>
           <span class="badge" style="background:var(--color-primary-light); color:var(--color-primary); font-size:9px; padding:2px 6px; margin-bottom:4px; display:inline-block;">${e.category}</span>
-          <h4 style="font-size:var(--font-size-sm); line-height:1.4; font-weight:700; margin-bottom:4px;">${e.title}</h4>
+          <div style="font-size:var(--font-size-sm); line-height:1.4; font-weight:700; margin-bottom:4px;">${e.title}</div>
           <span style="font-size:10px; color:var(--text-muted);">${e.date}</span>
         </div>
       </div>
@@ -288,7 +288,7 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
               <span class="badge badge-primary">${e.tag}</span>
               <span style="font-size:var(--font-size-xs); color:var(--color-primary); font-weight:700;">${e.day} ${e.month} ${e.year}</span>
             </div>
-            <h3 style="font-family:var(--font-headings); font-size:var(--font-size-md); font-weight:800; margin-bottom:6px; color:var(--text-dark);">${e.title}</h3>
+            <div style="font-family:var(--font-headings); font-size:var(--font-size-md); font-weight:800; margin-bottom:6px; color:var(--text-dark);">${e.title}</div>
             <p style="font-size:var(--font-size-sm); color:var(--text-muted); line-height:1.5; margin-bottom:12px;">${e.desc}</p>
           </div>
           <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(15,15,16,0.06); pt:10px; flex-wrap:wrap; gap:8px;">
@@ -314,12 +314,12 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
           </div>
           <div style="padding:var(--space-sm);">
             <span class="badge" style="background:var(--color-primary-light); color:var(--color-primary); margin-bottom:6px; font-size:10px;">${e.tag}</span>
-            <h3 style="font-size:var(--font-size-base); font-weight:700; margin-bottom:6px; line-height:1.4;">${e.title}</h3>
+            <div style="font-size:var(--font-size-base); font-weight:700; margin-bottom:6px; line-height:1.4;">${e.title}</div>
             <p style="font-size:var(--font-size-xs); color:var(--text-muted); line-height:1.5;">${e.desc}</p>
           </div>
         </div>
         <div style="padding:var(--space-sm); border-top:1px solid rgba(15,15,16,0.06);">
-          <h4 style="font-size:11px; font-family:var(--font-headings); margin-bottom:6px; color:var(--text-dark);"><span data-i18n="js_str_78">معرض الصور الخاص بالحدث:</span></h4>
+          <div style="font-size:11px; font-family:var(--font-headings); margin-bottom:6px; color:var(--text-dark);"><span data-i18n="js_str_78">معرض الصور الخاص بالحدث:</span></div>
           <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:6px;">
             ${e.gallery.map((t,a)=>`
               <div onclick="openEventLightbox('${t}', '${e.title}')" style="background-image:url('${t}'); background-size:cover; background-position:center; aspect-ratio:4/3; border-radius:4px; cursor:zoom-in; border:1px solid rgba(0,0,0,0.08); transition:var(--transition-fast);" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1"></div>
@@ -336,7 +336,7 @@ window.translateJS=function(e,t){if("undefined"!=typeof I18n&&I18n.t&&void 0!==I
 ${l}`),closeRsvpModal(),n.reset()});let i=document.getElementById("rsvp-modal-close"),s=document.getElementById("rsvp-modal");i&&i.addEventListener("click",closeRsvpModal),s&&s.addEventListener("click",e=>{e.target===s&&closeRsvpModal()})}function showCalendarDayEvent(e){let t=document.getElementById("calendar-event-details");if(!t||!window.CIS_DATA)return;let a=CIS_DATA.events.find(t=>t.id===e);if(!a){t.innerHTML=`<p style="color:var(--text-muted); font-size:var(--font-size-sm); text-align:center;"><span data-i18n="js_str_128">اختر يوماً مميزاً بنقطة برتقالية لعرض تفاصيل الحدث الخاص به.</span></p>`;return}t.innerHTML=`
     <div class="card" style="padding:var(--space-md); border-right:4px solid var(--color-primary); box-shadow:var(--shadow-md); animation:fade-in 0.4s ease;">
       <span class="badge badge-primary" style="margin-bottom:6px;">${a.tag}</span>
-      <h3 style="font-family:var(--font-headings); font-size:var(--font-size-md); font-weight:800; margin-bottom:8px;">${a.title}</h3>
+      <div style="font-family:var(--font-headings); font-size:var(--font-size-md); font-weight:800; margin-bottom:8px;">${a.title}</div>
       <p style="font-size:var(--font-size-sm); color:var(--text-muted); line-height:1.5; margin-bottom:12px;">${a.desc}</p>
       
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:var(--font-size-xs); color:var(--text-muted); border-top:1px solid rgba(15,15,16,0.06); padding-top:8px; margin-bottom:12px;">
@@ -374,7 +374,7 @@ ${l}`),closeRsvpModal(),n.reset()});let i=document.getElementById("rsvp-modal-cl
           </div>
         </div>
         <div class="media-info">
-          <h4>${e.title}</h4>
+          <div>${e.title}</div>
           <p>${e.desc}</p>
         </div>
       </div>
@@ -382,13 +382,13 @@ ${l}`),closeRsvpModal(),n.reset()});let i=document.getElementById("rsvp-modal-cl
       <div class="media-card">
         <div class="media-thumbnail-wrapper" style="background-image:url('${e.image}');"></div>
         <div class="media-info">
-          <h4>${e.title}</h4>
+          <div>${e.title}</div>
           <p>${e.desc}</p>
         </div>
       </div>
     `).join("")}function i(){return"videos"===(window.location.hash||"").replace("#","")?"videos":"photos"}t.forEach(e=>{e.addEventListener("click",()=>{let t=e.getAttribute("data-tab");n(t),history.replaceState(null,"",`#${"videos"===t?"videos":"photos"}`)})}),n(i()),window.addEventListener("hashchange",()=>n(i()))}function setupVanillaFormValidation(e,t){e&&(Object.keys(t).forEach(a=>{let n=t[a],i=e.querySelector(`#${a}`);if(i){n.isPhone&&i.addEventListener("input",e=>{e.target.value=e.target.value.replace(/\D/g,"")});let s=()=>{let e=n.validate(i.value);return function e(t,a,n){let i=t.closest(".form-group")||t.closest(".form-field");if(!i)return;let s=i.querySelector(".invalid-feedback");s||((s=document.createElement("div")).className="invalid-feedback",i.appendChild(s)),a?(t.classList.remove("is-invalid"),t.classList.add("is-valid"),s.textContent="",s.style.display="none"):(t.classList.remove("is-valid"),t.classList.add("is-invalid"),s.textContent=n,s.style.display="block")}(i,e.isValid,e.msg),e.isValid};i.addEventListener("input",s),i.addEventListener("blur",s),i.runCustomValidation=s}}),e.addEventListener("submit",a=>{let n=!0;Object.keys(t).forEach(t=>{let a=e.querySelector(`#${t}`);if(a&&a.runCustomValidation){let i=a.runCustomValidation();i||(n=!1)}}),n||(a.preventDefault(),a.stopImmediatePropagation(),alert(window.translateJS("js_str_89","يرجى ملء جميع الحقول المطلوبة بشكل صحيح للاستمرار.")))}),e.addEventListener("reset",()=>{e.querySelectorAll("input, textarea, select").forEach(e=>{e.classList.remove("is-valid","is-invalid"),e.style.borderColor="";let t=e.closest(".form-group")||e.closest(".form-field");if(t){let a=t.querySelector(".invalid-feedback");a&&(a.textContent="",a.style.display="none")}})}))}function initContactPage(){let e=document.getElementById("contact-page-form"),t=document.getElementById("contact-depts-grid"),a=document.getElementById("contact-emergencies-table");if(e||t||a)t&&window.CIS_DATA&&CIS_DATA.contacts&&(t.innerHTML=CIS_DATA.contacts.departments.map(e=>`
       <div class="card" style="padding:var(--space-md); border-top: 4px solid var(--color-primary); display:flex; flex-direction:column; gap:10px; margin:0;">
-        <h4 style="font-family:var(--font-headings); font-size:var(--font-size-base); font-weight:800; color:var(--text-dark);">${e.name}</h4>
+        <div style="font-family:var(--font-headings); font-size:var(--font-size-base); font-weight:800; color:var(--text-dark);">${e.name}</div>
         <div style="font-size:var(--font-size-xs); color:var(--text-muted); display:flex; flex-direction:column; gap:6px; flex:1;">
           <span>✉️ <a href="mailto:${e.email}" style="color:var(--color-primary); font-weight:700;">${e.email}</a></span>
           <span style="font-size:10px; background:var(--color-bg-neutral); padding:6px 8px; border-radius:6px; line-height:1.5;">⏰ ${e.hours}</span>
@@ -421,7 +421,7 @@ ${l}`),closeRsvpModal(),n.reset()});let i=document.getElementById("rsvp-modal-cl
         <div style="display:flex; align-items:center; gap:12px;">
           <span style="font-size:1.5rem;">📄</span>
           <div>
-            <h4 style="font-size:var(--font-size-sm); font-weight:700; color:var(--text-dark);">${e.name}</h4>
+            <div style="font-size:var(--font-size-sm); font-weight:700; color:var(--text-dark);">${e.name}</div>
             <span style="font-size:10px; color:var(--text-muted);"><span data-i18n="js_str_132">حجم الملف:</span> ${e.size}</span>
           </div>
         </div>
@@ -430,7 +430,7 @@ ${l}`),closeRsvpModal(),n.reset()});let i=document.getElementById("rsvp-modal-cl
     `).join(""))}function initItUnitPage(){let e=document.getElementById("it-services-grid");if(!e||!window.CIS_DATA||!CIS_DATA.itUnit)return;e.innerHTML=CIS_DATA.itUnit.services.map(e=>`
     <div class="card" style="padding:var(--space-md); display:flex; flex-direction:column; justify-content:space-between; border-top: 4px solid var(--color-primary);">
       <div>
-        <h4 style="font-family:var(--font-headings); font-size:var(--font-size-base); font-weight:800; margin-bottom:6px; color:var(--text-dark);">${e.title}</h4>
+        <div style="font-family:var(--font-headings); font-size:var(--font-size-base); font-weight:800; margin-bottom:6px; color:var(--text-dark);">${e.title}</div>
         <p style="font-size:var(--font-size-xs); color:var(--text-muted); line-height:1.5; margin-bottom:12px;">${e.desc}</p>
       </div>
       <a href="${e.link}" class="btn btn-outline" style="width:100%; text-align:center; padding:8px 0; font-size:var(--font-size-xs);"><span data-i18n="js_str_82">الدخول للخدمة</span></a>
@@ -446,7 +446,7 @@ ${l}`),closeRsvpModal(),n.reset()});let i=document.getElementById("rsvp-modal-cl
       <div class="card" style="padding:var(--space-sm); border-right:4px solid var(--color-accent-gold); margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; animation: fade-in 0.4s ease;">
         <div>
           <span style="font-size:9px; color:var(--text-muted); display:block;"><span data-i18n="js_str_59">رقم التذكرة:</span> #${e.id} | ${e.date}</span>
-          <h4 style="font-size:var(--font-size-sm); font-weight:700; margin-bottom:2px;">${e.subject}</h4>
+          <div style="font-size:var(--font-size-sm); font-weight:700; margin-bottom:2px;">${e.subject}</div>
           <p style="font-size:var(--font-size-xs); color:var(--text-muted);">${e.details}</p>
         </div>
         <span class="badge badge-gold" style="font-size:10px; white-space:nowrap;">${e.status}</span>
@@ -455,14 +455,14 @@ ${l}`),closeRsvpModal(),n.reset()});let i=document.getElementById("rsvp-modal-cl
 ${v}`)}),s())}function initResearchPage(){let e=document.getElementById("research-projects-list");if(!e||!window.CIS_DATA||!CIS_DATA.research)return;e.innerHTML=CIS_DATA.research.projects.map(e=>`
     <div class="card" style="padding:var(--space-md); border-right:4px solid var(--color-primary);">
       <span class="badge badge-primary" style="margin-bottom:6px;">${e.tag}</span>
-      <h3 style="font-family:var(--font-headings); font-size:var(--font-size-base); font-weight:800; margin-bottom:4px;">${e.title}</h3>
+      <div style="font-family:var(--font-headings); font-size:var(--font-size-base); font-weight:800; margin-bottom:4px;">${e.title}</div>
       <p style="font-size:var(--font-size-xs); color:var(--text-muted); margin-bottom:8px; line-height:1.5;">${e.desc}</p>
       <span style="font-size:10px; font-weight:700; color:var(--color-secondary);"><span data-i18n="js_str_91">الباحث الرئيسي للمشروع:</span> ${e.lead}</span>
     </div>
   `).join("");let t=document.getElementById("research-publications-list");t&&(t.innerHTML=CIS_DATA.research.publications.map(e=>`
       <div class="qa-doc-row" style="animation: fade-in 0.4s ease;">
         <div style="flex:1;">
-          <h4 style="font-size:var(--font-size-sm); font-weight:700; color:var(--text-dark); margin-bottom:2px;">"${e.title}"</h4>
+          <div style="font-size:var(--font-size-sm); font-weight:700; color:var(--text-dark); margin-bottom:2px;">"${e.title}"</div>
           <span style="font-size:var(--font-size-xs); color:var(--text-muted);">${e.authors} | ${e.journal} (${e.year})</span>
         </div>
         <a href="assets/docs/quality-report.pdf" download class="btn btn-outline" style="padding:4px 12px; font-size:10px;"><span data-i18n="js_str_121">تحميل</span> PDF</a>
@@ -470,7 +470,7 @@ ${v}`)}),s())}function initResearchPage(){let e=document.getElementById("researc
     `).join(""));let a=document.getElementById("research-hackathons-list");a&&(a.innerHTML=CIS_DATA.research.hackathons.map(e=>`
       <div class="card" style="padding:var(--space-sm) var(--space-md); border-top: 4px solid var(--color-accent-gold); margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
         <div>
-          <h4 style="font-size:var(--font-size-sm); font-weight:800; margin-bottom:2px;">${e.title}</h4>
+          <div style="font-size:var(--font-size-sm); font-weight:800; margin-bottom:2px;">${e.title}</div>
           <span style="font-size:10px; color:var(--text-muted);"><span data-i18n="js_str_20">التاريخ:</span> ${e.date}</span>
         </div>
         <span class="badge badge-gold" style="font-size:10px;">${e.rank}</span>
@@ -479,7 +479,7 @@ ${v}`)}),s())}function initResearchPage(){let e=document.getElementById("researc
     <div class="card faculty-card" style="text-align:center; padding:var(--space-md); display:flex; flex-direction:column; align-items:center;">
       <img src="${e.avatar}" alt="${e.name}" class="faculty-avatar" style="border-color:var(--color-accent-gold); width:90px; height:90px;">
       <span class="badge badge-gold" style="margin-bottom:8px; font-size:10px;"><span data-i18n="js_str_133">قصة نجاح مميزة</span></span>
-      <h3 style="font-size:var(--font-size-base); margin-bottom:2px; font-weight:800;">${e.name}</h3>
+      <div style="font-size:var(--font-size-base); margin-bottom:2px; font-weight:800;">${e.name}</div>
       <p style="font-size:11px; color:var(--text-muted); margin-bottom:12px; font-weight:700;">${e.gradYear}</p>
       <div style="background:var(--color-bg-neutral); padding:8px 12px; border-radius:var(--radius-sm); border:1px dashed rgba(15,15,16,0.1); margin-bottom:12px; flex:1;">
         <p style="font-size:var(--font-size-xs); font-style:italic; color:var(--text-muted); line-height:1.5;">"${e.quote}"</p>
@@ -489,14 +489,14 @@ ${v}`)}),s())}function initResearchPage(){let e=document.getElementById("researc
   `).join("");let t=document.getElementById("alumni-employment-rate");t&&(t.innerHTML=`
       <div class="card" style="padding:var(--space-md); text-align:center; border:none; background:var(--gradient-primary); color:white;">
         <div style="font-size:2.5rem; font-weight:900; line-height:1; margin-bottom:4px;">%٩١</div>
-        <h4 style="color:white; font-family:var(--font-headings); font-size:var(--font-size-sm); margin-bottom:4px; font-weight:800;"><span data-i18n="js_str_58">معدل توظيف الخريجين</span></h4>
+        <div style="color:white; font-family:var(--font-headings); font-size:var(--font-size-sm); margin-bottom:4px; font-weight:800;"><span data-i18n="js_str_58">معدل توظيف الخريجين</span></div>
         <p style="font-size:11px; color:rgba(255,255,255,0.9); line-height:1.4;"><span data-i18n="js_str_124">نسبة التحاق خريجي المعهد بسوق العمل في التخصصات التقنية والإدارية خلال الـ ٦ أشهر الأولى من التخرج.</span></p>
       </div>
     `)}function initCareerPage(){let e=document.getElementById("career-jobs-list");if(!e||!window.CIS_DATA||!CIS_DATA.career)return;e.innerHTML=CIS_DATA.career.jobs.map(e=>`
     <div class="job-card" style="animation: fade-in 0.4s ease;">
       <div>
         <span class="badge badge-primary" style="margin-bottom:4px; font-size:10px;">${e.type}</span>
-        <h3 style="font-family:var(--font-headings); font-size:var(--font-size-base); font-weight:800; color:var(--text-dark); margin-bottom:2px;">${e.title}</h3>
+        <div style="font-family:var(--font-headings); font-size:var(--font-size-base); font-weight:800; color:var(--text-dark); margin-bottom:2px;">${e.title}</div>
         <p style="font-size:var(--font-size-xs); color:var(--text-muted);">${e.company} | 📍 ${e.location}</p>
       </div>
       <div style="text-align:left; display:flex; flex-direction:column; gap:6px;">
@@ -521,7 +521,7 @@ ${v}`)}),s())}function initResearchPage(){let e=document.getElementById("researc
     `).join("")}function p(e){if(!i)return;let t=e.toLowerCase().trim();if(!t){i.innerHTML="";return}let a=r.filter(e=>e.title.toLowerCase().includes(t)||e.desc.toLowerCase().includes(t));if(0===a.length){i.innerHTML=`<p style="font-size:var(--font-size-xs); color:var(--text-muted); text-align:center; padding:16px;"><span data-i18n="js_str_101">لا توجد صفحات مطابقة لمصطلح البحث.</span></p>`;return}i.innerHTML=a.map(t=>`
       <div class="search-result-hit" onclick="addRecent('${e}'); window.location.href='${t.url}';">
         <div>
-          <h4>${t.title}</h4>
+          <div>${t.title}</div>
           <p>${t.desc}</p>
         </div>
         <span style="font-size:12px; color:var(--color-primary); font-weight:700;"><span data-i18n="js_str_22">انتقال</span> 🔗</span>
