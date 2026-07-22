@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "websites-new-cairo-academy-project1",
+  "compatibility_date": "2026-07-22",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "cis-redesign"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
